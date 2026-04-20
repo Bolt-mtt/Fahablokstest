@@ -222,6 +222,16 @@ nav a:hover, nav a.active { color: var(--white); }
 .checkout-btn:hover { background: #c0303b; }
 .secure-note { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 12px; font-size: 11px; color: var(--gray); }
 
+/* CONSTRUCTION MODAL */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 500; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.modal-box { background: var(--white); max-width: 480px; width: 100%; padding: 48px 40px; text-align: center; position: relative; animation: modalIn .25s ease; }
+@keyframes modalIn { from{opacity:0;transform:scale(.95)} to{opacity:1;transform:scale(1)} }
+.modal-icon { font-size: 56px; margin-bottom: 20px; }
+.modal-title { font-family: var(--ff-display); font-size: 36px; letter-spacing: 0.04em; margin-bottom: 12px; }
+.modal-text { font-size: 14px; color: var(--gray); line-height: 1.7; margin-bottom: 28px; }
+.modal-close-btn { background: var(--black); color: var(--white); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 18px; letter-spacing: 0.06em; padding: 14px 36px; transition: background .2s; }
+.modal-close-btn:hover { background: var(--red); }
+
 /* SUCCESS */
 .success-wrap { max-width: 560px; margin: 80px auto; padding: 0 32px; text-align: center; }
 .success-icon { font-size: 64px; margin-bottom: 20px; }
@@ -908,6 +918,23 @@ function SuccessPage({ total, onHome }) {
   );
 }
 
+/* ========== CONSTRUCTION MODAL ========== */
+function ConstructionModal({ onClose }) {
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-box" onClick={e => e.stopPropagation()}>
+        <div className="modal-icon">🚧</div>
+        <div className="modal-title">SITE EM CONSTRUÇÃO</div>
+        <div className="modal-text">
+          Obrigado pelo interesse! No momento ainda não estamos aceitando pedidos.<br/><br/>
+          Em breve nossa loja estará 100% disponível. Fique de olho!
+        </div>
+        <button className="modal-close-btn" onClick={onClose}>ENTENDIDO</button>
+      </div>
+    </div>
+  );
+}
+
 /* ========== APP ========== */
 function App() {
   const [page, setPage] = useState('home');
@@ -915,6 +942,7 @@ function App() {
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [successTotal, setSuccessTotal] = useState(0);
+  const [showModal, setShowModal] = useState(false);
 
   const goPage = (p) => { setPage(p); window.scrollTo(0, 0); };
 
@@ -939,10 +967,7 @@ function App() {
   };
 
   const handleSuccess = () => {
-    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
-    setSuccessTotal(total);
-    setCart([]);
-    goPage('success');
+    setShowModal(true);
   };
 
   const cartCount = cart.reduce((s, i) => s + i.qty, 0);
@@ -986,6 +1011,7 @@ function App() {
       {page === 'success' && (
         <SuccessPage total={successTotal} onHome={() => goPage('home')} />
       )}
+      {showModal && <ConstructionModal onClose={() => setShowModal(false)} />}
     </>
   );
 }
