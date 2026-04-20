@@ -3,333 +3,294 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PowerBuild® – VW Gol G1 Edição Brasil</title>
+<title>FAHABLOKS – Carros de Montar Premium</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --black: #0d0d0d;
-    --white: #ffffff;
-    --sand: #d4c9a8;
-    --sand-light: #f5f1e8;
-    --vw-blue: #001e50;
-    --accent: #e8c832;
-    --gray: #6b6b6b;
-    --gray-light: #f4f4f4;
-    --border: #e2e2e2;
-    --ff-display: 'Bebas Neue', sans-serif;
-    --ff-body: 'DM Sans', sans-serif;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--ff-body); background: var(--white); color: var(--black); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #111111;
+  --white: #ffffff;
+  --bg: #f2f2f2;
+  --red: #e63946;
+  --yellow: #ffd60a;
+  --gray: #777777;
+  --gray-light: #f8f8f8;
+  --border: #e5e5e5;
+  --ff-display: 'Bebas Neue', sans-serif;
+  --ff-body: 'DM Sans', sans-serif;
+  --radius: 0px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--ff-body); background: var(--bg); color: var(--black); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-  /* ANN BAR */
-  .ann-bar { background: var(--vw-blue); color: var(--white); text-align: center; padding: 10px 20px; font-size: 13px; font-weight: 500; letter-spacing: 0.03em; }
-  .ann-bar span { color: var(--accent); font-weight: 700; }
+/* ANN BAR */
+.ann-bar { background: var(--red); color: var(--white); text-align: center; padding: 9px 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.ann-bar strong { color: var(--yellow); }
 
-  /* HEADER */
-  header { position: sticky; top: 0; z-index: 200; background: var(--white); border-bottom: 1px solid var(--border); }
-  .header-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 64px; }
-  .logo { font-family: var(--ff-display); font-size: 24px; letter-spacing: 0.04em; color: var(--black); text-decoration: none; cursor: pointer; }
-  nav { display: flex; gap: 28px; }
-  nav a { font-size: 13px; font-weight: 500; color: var(--gray); text-decoration: none; letter-spacing: 0.02em; transition: color .2s; cursor: pointer; }
-  nav a:hover { color: var(--black); }
-  .cart-btn { display: flex; align-items: center; gap: 6px; background: var(--black); color: var(--white); border: none; cursor: pointer; padding: 8px 16px; font-family: var(--ff-body); font-size: 13px; font-weight: 600; letter-spacing: 0.03em; transition: background .2s; position: relative; }
-  .cart-btn:hover { background: var(--vw-blue); }
-  .cart-count { background: var(--accent); color: var(--black); width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+/* HEADER */
+header { position: sticky; top: 0; z-index: 200; background: var(--black); }
+.header-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 68px; }
+.logo { font-family: var(--ff-display); font-size: 26px; letter-spacing: 0.08em; color: var(--white); cursor: pointer; }
+.logo span { color: var(--red); }
+nav { display: flex; gap: 32px; }
+nav a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.6); text-decoration: none; letter-spacing: 0.04em; transition: color .2s; cursor: pointer; }
+nav a:hover, nav a.active { color: var(--white); }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.cart-btn { display: flex; align-items: center; gap: 8px; background: var(--red); color: var(--white); border: none; cursor: pointer; padding: 10px 20px; font-family: var(--ff-display); font-size: 16px; letter-spacing: 0.06em; transition: background .2s; position: relative; }
+.cart-btn:hover { background: #c0303b; }
+.cart-count { background: var(--yellow); color: var(--black); width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; font-family: var(--ff-body); }
 
-  /* CART DRAWER */
-  .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 300; opacity: 0; pointer-events: none; transition: opacity .3s; }
-  .cart-overlay.open { opacity: 1; pointer-events: all; }
-  .cart-drawer { position: fixed; top: 0; right: -420px; width: 420px; max-width: 100vw; height: 100vh; background: var(--white); z-index: 400; display: flex; flex-direction: column; transition: right .35s cubic-bezier(.4,0,.2,1); box-shadow: -4px 0 32px rgba(0,0,0,.12); }
-  .cart-drawer.open { right: 0; }
-  .cart-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--border); }
-  .cart-title { font-family: var(--ff-display); font-size: 22px; letter-spacing: 0.04em; }
-  .cart-close { background: none; border: none; cursor: pointer; font-size: 24px; color: var(--gray); line-height: 1; padding: 4px; transition: color .2s; }
-  .cart-close:hover { color: var(--black); }
-  .cart-body { flex: 1; overflow-y: auto; padding: 20px 24px; }
-  .cart-empty { text-align: center; padding: 60px 20px; }
-  .cart-empty-icon { font-size: 48px; margin-bottom: 16px; }
-  .cart-empty-text { font-size: 15px; color: var(--gray); margin-bottom: 20px; }
-  .cart-item { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--border); }
-  .cart-item:last-child { border-bottom: none; }
-  .cart-item-img { width: 72px; height: 72px; background: var(--sand-light); border: 1px solid var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-  .cart-item-img img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
-  .cart-item-info { flex: 1; }
-  .cart-item-name { font-size: 14px; font-weight: 600; line-height: 1.3; margin-bottom: 4px; }
-  .cart-item-variant { font-size: 12px; color: var(--gray); margin-bottom: 8px; }
-  .cart-item-controls { display: flex; align-items: center; gap: 8px; }
-  .cart-qty-btn { width: 28px; height: 28px; border: 1.5px solid var(--border); background: var(--white); cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background .2s; }
-  .cart-qty-btn:hover { background: var(--gray-light); }
-  .cart-qty-num { font-size: 14px; font-weight: 600; min-width: 20px; text-align: center; }
-  .cart-item-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
-  .cart-item-price { font-size: 14px; font-weight: 700; }
-  .cart-remove { background: none; border: none; cursor: pointer; color: var(--gray); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; transition: color .2s; display: flex; align-items: center; gap: 4px; padding: 2px 0; }
-  .cart-remove:hover { color: #e53935; }
-  .cart-footer { padding: 20px 24px; border-top: 1px solid var(--border); background: var(--white); }
-  .cart-subtotal { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 6px; }
-  .cart-total { display: flex; justify-content: space-between; font-family: var(--ff-display); font-size: 22px; letter-spacing: 0.02em; margin-bottom: 16px; }
-  .cart-checkout-btn { width: 100%; background: var(--vw-blue); color: var(--white); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 20px; letter-spacing: 0.06em; padding: 15px; transition: background .2s; }
-  .cart-checkout-btn:hover { background: #002a70; }
-  .cart-continue-btn { width: 100%; background: none; border: 1.5px solid var(--border); color: var(--black); cursor: pointer; font-family: var(--ff-body); font-size: 13px; font-weight: 600; padding: 11px; margin-top: 8px; transition: border-color .2s; }
-  .cart-continue-btn:hover { border-color: var(--black); }
+/* CART DRAWER */
+.cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 300; opacity: 0; pointer-events: none; transition: opacity .3s; }
+.cart-overlay.open { opacity: 1; pointer-events: all; }
+.cart-drawer { position: fixed; top: 0; right: -440px; width: 440px; max-width: 100vw; height: 100vh; background: var(--white); z-index: 400; display: flex; flex-direction: column; transition: right .35s cubic-bezier(.4,0,.2,1); box-shadow: -8px 0 40px rgba(0,0,0,.15); }
+.cart-drawer.open { right: 0; }
+.cart-header { display: flex; align-items: center; justify-content: space-between; padding: 22px 26px; border-bottom: 1px solid var(--border); background: var(--black); }
+.cart-title { font-family: var(--ff-display); font-size: 22px; letter-spacing: 0.06em; color: var(--white); }
+.cart-close { background: none; border: none; cursor: pointer; font-size: 22px; color: rgba(255,255,255,0.7); line-height: 1; transition: color .2s; }
+.cart-close:hover { color: var(--white); }
+.cart-body { flex: 1; overflow-y: auto; padding: 20px 26px; }
+.cart-empty { text-align: center; padding: 60px 20px; }
+.cart-empty-icon { font-size: 52px; margin-bottom: 16px; }
+.cart-empty-text { font-size: 14px; color: var(--gray); margin-bottom: 24px; line-height: 1.6; }
+.drawer-shop-btn { background: var(--black); color: var(--white); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 18px; letter-spacing: 0.06em; padding: 12px 28px; transition: background .2s; }
+.drawer-shop-btn:hover { background: var(--red); }
+.cart-item { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--border); }
+.cart-item:last-child { border-bottom: none; }
+.cart-item-img { width: 76px; height: 76px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid var(--border); }
+.cart-item-img img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
+.cart-item-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 26px; }
+.cart-item-info { flex: 1; }
+.cart-item-name { font-size: 14px; font-weight: 700; line-height: 1.3; margin-bottom: 2px; }
+.cart-item-sub { font-size: 12px; color: var(--gray); margin-bottom: 10px; }
+.cart-item-controls { display: flex; align-items: center; gap: 8px; }
+.cart-qty-btn { width: 28px; height: 28px; border: 1.5px solid var(--border); background: var(--white); cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; transition: all .2s; }
+.cart-qty-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+.cart-qty-num { font-size: 14px; font-weight: 700; min-width: 24px; text-align: center; }
+.cart-item-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+.cart-item-price { font-family: var(--ff-display); font-size: 18px; }
+.cart-remove { background: none; border: none; cursor: pointer; color: var(--gray); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; transition: color .2s; }
+.cart-remove:hover { color: var(--red); }
+.cart-footer { padding: 20px 26px; border-top: 2px solid var(--black); }
+.cart-subtotal-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--gray); margin-bottom: 6px; }
+.cart-total-row { display: flex; justify-content: space-between; font-family: var(--ff-display); font-size: 26px; letter-spacing: 0.02em; margin-bottom: 16px; }
+.cart-checkout-btn { width: 100%; background: var(--red); color: var(--white); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 22px; letter-spacing: 0.08em; padding: 16px; transition: background .2s; margin-bottom: 8px; }
+.cart-checkout-btn:hover { background: #c0303b; }
+.cart-view-btn { width: 100%; background: none; border: 2px solid var(--black); color: var(--black); cursor: pointer; font-family: var(--ff-body); font-size: 13px; font-weight: 700; padding: 12px; transition: all .2s; }
+.cart-view-btn:hover { background: var(--black); color: var(--white); }
 
-  /* ============ LANDING PAGE ============ */
-  .landing-hero {
-    background: var(--vw-blue);
-    min-height: calc(100vh - 100px);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .landing-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 70% 50%, rgba(232,200,50,0.08) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .hero-text-col { padding: 80px 64px 80px 80px; position: relative; z-index: 2; }
-  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(232,200,50,0.15); border: 1px solid rgba(232,200,50,0.3); padding: 6px 14px; margin-bottom: 28px; }
-  .hero-eyebrow-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.3)} }
-  .hero-eyebrow-text { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; }
-  .hero-title { font-family: var(--ff-display); font-size: 96px; line-height: 0.95; letter-spacing: 0.02em; color: var(--white); margin-bottom: 12px; }
-  .hero-title .accent-line { color: var(--accent); display: block; }
-  .hero-subtitle { font-size: 16px; color: rgba(255,255,255,0.65); font-weight: 400; margin-bottom: 36px; line-height: 1.6; max-width: 400px; }
-  .hero-price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 32px; }
-  .hero-price { font-family: var(--ff-display); font-size: 52px; color: var(--white); line-height: 1; }
-  .hero-price-old { font-size: 20px; color: rgba(255,255,255,0.4); text-decoration: line-through; }
-  .hero-price-badge { background: var(--accent); color: var(--black); font-size: 12px; font-weight: 700; padding: 3px 10px; letter-spacing: 0.06em; }
-  .hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
-  .hero-cta-primary { background: var(--accent); color: var(--black); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 20px; letter-spacing: 0.06em; padding: 16px 36px; transition: all .2s; }
-  .hero-cta-primary:hover { background: #f5d94a; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(232,200,50,0.3); }
-  .hero-cta-secondary { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.3); cursor: pointer; font-family: var(--ff-body); font-size: 14px; font-weight: 600; padding: 16px 28px; transition: border-color .2s; }
-  .hero-cta-secondary:hover { border-color: var(--white); }
-  .hero-trust-strip { display: flex; gap: 24px; margin-top: 40px; flex-wrap: wrap; }
-  .hero-trust-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.6); }
-  .hero-trust-item strong { color: rgba(255,255,255,0.9); }
+/* HERO */
+.hero { background: var(--black); color: var(--white); padding: 80px 32px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(230,57,70,0.18) 0%, transparent 65%); pointer-events: none; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(230,57,70,0.15); border: 1px solid rgba(230,57,70,0.3); padding: 6px 16px; margin-bottom: 24px; }
+.hero-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+.hero-eyebrow-text { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--red); text-transform: uppercase; }
+.hero-title { font-family: var(--ff-display); font-size: 88px; line-height: 0.92; letter-spacing: 0.03em; margin-bottom: 16px; }
+.hero-title span { color: var(--red); display: block; }
+.hero-sub { font-size: 16px; color: rgba(255,255,255,0.6); max-width: 520px; margin: 0 auto 40px; line-height: 1.7; }
+.hero-stats { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+.hero-stat-num { font-family: var(--ff-display); font-size: 36px; color: var(--white); line-height: 1; }
+.hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
 
-  .hero-img-col { position: relative; height: 100%; display: flex; align-items: center; justify-content: center; padding: 40px; }
-  .hero-img-wrap { position: relative; width: 100%; max-width: 580px; }
-  .hero-img-glow { position: absolute; inset: -40px; background: radial-gradient(ellipse, rgba(232,200,50,0.15) 0%, transparent 70%); pointer-events: none; }
-  .hero-img-main { width: 100%; height: auto; display: block; position: relative; z-index: 1; filter: drop-shadow(0 20px 60px rgba(0,0,0,0.5)); animation: float 4s ease-in-out infinite; }
-  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-  .hero-img-badge { position: absolute; bottom: -10px; right: 20px; background: var(--white); padding: 10px 16px; z-index: 2; }
-  .hero-img-badge-top { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: var(--gray); text-transform: uppercase; }
-  .hero-img-badge-num { font-family: var(--ff-display); font-size: 22px; color: var(--vw-blue); line-height: 1; }
-  .hero-img-badge-sub { font-size: 10px; color: var(--gray); }
+/* CATALOG */
+.catalog { max-width: 1300px; margin: 0 auto; padding: 56px 32px; }
+.catalog-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
+.catalog-title { font-family: var(--ff-display); font-size: 40px; letter-spacing: 0.04em; }
+.filter-tabs { display: flex; gap: 0; border: 2px solid var(--black); overflow: hidden; }
+.filter-tab { padding: 10px 22px; background: var(--white); border: none; cursor: pointer; font-family: var(--ff-body); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); border-right: 2px solid var(--black); transition: all .2s; }
+.filter-tab:last-child { border-right: none; }
+.filter-tab.active { background: var(--black); color: var(--white); }
+.filter-tab:hover:not(.active) { background: var(--bg); color: var(--black); }
+.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 
-  /* STATS BAR */
-  .stats-bar { background: var(--accent); padding: 20px 32px; }
-  .stats-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
-  .stat-item { text-align: center; padding: 4px 0; border-right: 1px solid rgba(0,0,0,0.12); }
-  .stat-item:last-child { border-right: none; }
-  .stat-num { font-family: var(--ff-display); font-size: 32px; color: var(--black); letter-spacing: 0.02em; line-height: 1; }
-  .stat-label { font-size: 11px; font-weight: 600; color: rgba(0,0,0,0.6); letter-spacing: 0.06em; text-transform: uppercase; }
+/* PRODUCT CARD */
+.product-card { background: var(--white); border: 1px solid var(--border); cursor: pointer; transition: box-shadow .25s, transform .25s; overflow: hidden; position: relative; }
+.product-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.12); transform: translateY(-4px); }
+.card-img-wrap { aspect-ratio: 4/3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.card-img-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; z-index: 1; }
+.card-img-fallback .emoji { font-size: 52px; }
+.card-img-fallback .car-name { font-family: var(--ff-display); font-size: 16px; letter-spacing: 0.06em; color: rgba(255,255,255,0.7); text-align: center; padding: 0 12px; }
+.card-img-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 16px; z-index: 2; }
+.card-badge { position: absolute; top: 12px; left: 12px; font-size: 9px; font-weight: 800; padding: 4px 10px; letter-spacing: 0.1em; text-transform: uppercase; z-index: 3; }
+.card-badge.red { background: var(--red); color: var(--white); }
+.card-badge.yellow { background: var(--yellow); color: var(--black); }
+.card-badge.black { background: var(--black); color: var(--white); }
+.card-body { padding: 18px 20px; }
+.card-cat { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
+.card-name { font-size: 17px; font-weight: 800; line-height: 1.2; margin-bottom: 2px; }
+.card-sub { font-size: 12px; color: var(--gray); margin-bottom: 12px; }
+.card-footer { display: flex; align-items: center; justify-content: space-between; }
+.card-prices { display: flex; align-items: baseline; gap: 8px; }
+.card-price { font-family: var(--ff-display); font-size: 24px; color: var(--black); }
+.card-old { font-size: 12px; color: var(--gray); text-decoration: line-through; }
+.card-add-btn { background: var(--black); color: var(--white); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 13px; letter-spacing: 0.06em; padding: 9px 16px; transition: background .2s; }
+.card-add-btn:hover { background: var(--red); }
+.card-add-btn.added { background: #27ae60; }
 
-  /* PRODUCT CARD SECTION */
-  .landing-products { max-width: 1280px; margin: 0 auto; padding: 80px 32px; }
-  .landing-section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 40px; }
-  .landing-section-title { font-family: var(--ff-display); font-size: 48px; letter-spacing: 0.02em; line-height: 1; }
-  .landing-section-sub { font-size: 14px; color: var(--gray); }
-  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .product-card { border: 1px solid var(--border); cursor: pointer; transition: box-shadow .25s, transform .25s; background: var(--white); overflow: hidden; }
-  .product-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.1); transform: translateY(-4px); }
-  .product-card-img { background: var(--sand-light); aspect-ratio: 4/3; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative; }
-  .product-card-img img { width: 100%; height: 100%; object-fit: contain; padding: 20px; transition: transform .35s; }
-  .product-card:hover .product-card-img img { transform: scale(1.04); }
-  .product-card-badge { position: absolute; top: 12px; left: 12px; background: var(--black); color: var(--white); font-size: 10px; font-weight: 700; padding: 4px 10px; letter-spacing: 0.08em; text-transform: uppercase; }
-  .product-card-badge.sale { background: #e53935; }
-  .product-card-body { padding: 20px; }
-  .product-card-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-  .product-card-desc { font-size: 13px; color: var(--gray); margin-bottom: 14px; line-height: 1.4; }
-  .product-card-footer { display: flex; align-items: center; justify-content: space-between; }
-  .product-card-price { font-family: var(--ff-display); font-size: 24px; color: var(--black); }
-  .product-card-old { font-size: 13px; color: var(--gray); text-decoration: line-through; margin-left: 6px; }
-  .product-card-btn { background: var(--black); color: var(--white); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 14px; letter-spacing: 0.04em; padding: 8px 16px; transition: background .2s; }
-  .product-card-btn:hover { background: var(--vw-blue); }
+/* PRODUCT PAGE */
+.breadcrumb { max-width: 1300px; margin: 0 auto; padding: 16px 32px; font-size: 12px; color: var(--gray); display: flex; gap: 6px; align-items: center; }
+.breadcrumb a { color: var(--gray); text-decoration: none; cursor: pointer; }
+.breadcrumb a:hover { color: var(--black); }
+.breadcrumb-sep { color: var(--border); }
+.product-layout { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 460px; gap: 56px; padding: 0 32px 80px; align-items: start; }
+.gallery { position: sticky; top: 80px; }
+.gallery-main { aspect-ratio: 1/1; position: relative; overflow: hidden; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+.gallery-main-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; z-index: 1; }
+.gallery-main-fallback .big-emoji { font-size: 96px; }
+.gallery-main-fallback .car-label { font-family: var(--ff-display); font-size: 20px; letter-spacing: 0.08em; color: rgba(255,255,255,0.6); }
+.gallery-main img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 32px; z-index: 2; }
+.gallery-badge { position: absolute; bottom: 14px; right: 14px; background: var(--black); color: var(--white); font-size: 9px; font-weight: 800; padding: 5px 12px; letter-spacing: 0.1em; text-transform: uppercase; z-index: 3; }
 
-  /* HOW IT WORKS */
-  .how-it-works { background: var(--sand-light); padding: 80px 32px; }
-  .how-inner { max-width: 1280px; margin: 0 auto; }
-  .how-title { font-family: var(--ff-display); font-size: 48px; letter-spacing: 0.02em; margin-bottom: 48px; text-align: center; }
-  .how-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-  .how-step { text-align: center; }
-  .how-step-num { font-family: var(--ff-display); font-size: 64px; color: var(--sand); line-height: 1; margin-bottom: 12px; }
-  .how-step-title { font-weight: 700; font-size: 15px; margin-bottom: 8px; }
-  .how-step-desc { font-size: 13px; color: var(--gray); line-height: 1.5; }
+.product-info { padding-top: 4px; }
+.product-cat-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 800; padding: 4px 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
+.product-title { font-family: var(--ff-display); font-size: 52px; line-height: 0.95; letter-spacing: 0.02em; margin-bottom: 4px; }
+.product-subtitle { font-size: 14px; color: var(--gray); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px; }
+.rating-row { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.stars { color: var(--yellow); font-size: 15px; letter-spacing: 2px; }
+.rating-num { font-size: 13px; color: var(--gray); }
+.rating-count { font-size: 13px; font-weight: 700; color: var(--black); }
+.divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+.price-block { margin-bottom: 6px; }
+.price-row { display: flex; align-items: baseline; gap: 12px; }
+.price-main { font-family: var(--ff-display); font-size: 46px; line-height: 1; }
+.price-old { font-size: 18px; color: var(--gray); text-decoration: line-through; }
+.price-save { background: var(--red); color: var(--white); font-size: 11px; font-weight: 800; padding: 3px 9px; letter-spacing: 0.06em; }
+.installments { font-size: 13px; color: var(--gray); margin-top: 6px; margin-bottom: 20px; }
+.installments strong { color: var(--black); }
+.pieces-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--bg); border: 1px solid var(--border); padding: 6px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 20px; }
+.qty-row { display: flex; gap: 12px; align-items: stretch; margin-bottom: 12px; }
+.qty-ctrl { display: flex; align-items: center; border: 2px solid var(--black); background: var(--white); }
+.qty-btn { width: 44px; height: 54px; display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; font-size: 20px; color: var(--black); transition: background .2s; }
+.qty-btn:hover { background: var(--bg); }
+.qty-num { width: 44px; text-align: center; font-weight: 800; font-size: 16px; }
+.add-btn { flex: 1; background: var(--black); color: var(--white); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 20px; letter-spacing: 0.06em; height: 54px; transition: background .2s; }
+.add-btn:hover { background: var(--red); }
+.add-btn.added { background: #27ae60; }
+.trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 24px; }
+.trust-cell { background: var(--white); padding: 14px 8px; display: flex; flex-direction: column; align-items: center; gap: 3px; text-align: center; }
+.trust-icon { font-size: 20px; }
+.trust-label { font-size: 10px; font-weight: 800; letter-spacing: 0.04em; line-height: 1.3; }
+.trust-sub { font-size: 9px; color: var(--gray); }
+.accordion-item { border-top: 1px solid var(--border); }
+.accordion-item:last-child { border-bottom: 1px solid var(--border); }
+.accordion-trigger { width: 100%; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 15px 0; font-family: var(--ff-body); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--black); text-align: left; }
+.accordion-icon { font-size: 18px; transition: transform .3s; }
+.accordion-icon.open { transform: rotate(180deg); }
+.accordion-body { padding-bottom: 16px; font-size: 13px; color: var(--gray); line-height: 1.7; }
+.spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; margin-top: 8px; }
+.spec-item { display: flex; flex-direction: column; }
+.spec-k { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray); }
+.spec-v { font-size: 13px; color: var(--black); font-weight: 600; }
 
-  /* ============ PRODUCT PAGE ============ */
-  .breadcrumb { max-width: 1280px; margin: 0 auto; padding: 16px 32px; font-size: 12px; color: var(--gray); display: flex; gap: 6px; align-items: center; }
-  .breadcrumb a { color: var(--gray); text-decoration: none; cursor: pointer; }
-  .breadcrumb a:hover { color: var(--black); }
-  .breadcrumb-sep { color: var(--border); }
-  .product-layout { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 480px; gap: 64px; padding: 0 32px 80px; align-items: start; }
-  .gallery { position: sticky; top: 80px; }
-  .gallery-main { aspect-ratio: 1/1; background: var(--sand-light); overflow: hidden; position: relative; border: 1px solid var(--border); }
-  .gallery-main img { width: 100%; height: 100%; object-fit: contain; padding: 24px; }
-  .badge-licensed { position: absolute; bottom: 16px; right: 16px; background: var(--vw-blue); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 4px 10px; text-transform: uppercase; }
-  .gallery-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 8px; }
-  .thumb { aspect-ratio: 1/1; background: var(--sand-light); cursor: pointer; overflow: hidden; border: 2px solid transparent; transition: border-color .2s; border: 1px solid var(--border); }
-  .thumb.active { border-color: var(--black) !important; }
-  .thumb img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
-  .product-info { padding-top: 8px; }
-  .product-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; padding: 4px 10px; text-transform: uppercase; margin-bottom: 16px; }
-  .product-title { font-family: var(--ff-display); font-size: 48px; line-height: 1; letter-spacing: 0.02em; margin-bottom: 4px; }
-  .product-subtitle { font-size: 14px; color: var(--gray); font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 20px; }
-  .rating-row { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
-  .stars { color: var(--accent); font-size: 15px; letter-spacing: 1px; }
-  .rating-text { font-size: 13px; color: var(--gray); }
-  .rating-link { color: var(--black); font-weight: 600; font-size: 13px; text-decoration: none; }
-  .divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
-  .price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
-  .price-main { font-family: var(--ff-display); font-size: 42px; line-height: 1; }
-  .price-old { font-size: 18px; color: var(--gray); text-decoration: line-through; }
-  .price-save { background: #ff4444; color: var(--white); font-size: 12px; font-weight: 700; padding: 2px 8px; letter-spacing: 0.05em; }
-  .price-installments { font-size: 13px; color: var(--gray); margin-bottom: 24px; }
-  .price-installments strong { color: var(--black); }
-  .option-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
-  .option-label span { font-weight: 400; color: var(--gray); }
-  .variant-row { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
-  .variant-btn { padding: 8px 16px; border: 1.5px solid var(--border); background: var(--white); cursor: pointer; font-family: var(--ff-body); font-size: 13px; font-weight: 500; transition: all .2s; color: var(--black); }
-  .variant-btn.active { border-color: var(--black); background: var(--black); color: var(--white); }
-  .variant-btn:hover:not(.active) { border-color: #999; }
-  .qty-cart-row { display: flex; gap: 12px; margin-bottom: 16px; align-items: stretch; }
-  .qty-control { display: flex; align-items: center; border: 1.5px solid var(--border); background: var(--white); }
-  .qty-btn { width: 42px; height: 52px; display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; font-size: 20px; color: var(--black); transition: background .2s; }
-  .qty-btn:hover { background: var(--gray-light); }
-  .qty-num { width: 42px; text-align: center; font-weight: 600; font-size: 15px; }
-  .add-btn { flex: 1; background: var(--black); color: var(--white); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 20px; letter-spacing: 0.06em; transition: background .2s; height: 52px; }
-  .add-btn:hover { background: var(--vw-blue); }
-  .buy-now-btn { width: 100%; background: var(--vw-blue); color: var(--white); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 20px; letter-spacing: 0.06em; height: 52px; transition: background .2s; margin-bottom: 24px; }
-  .buy-now-btn:hover { background: #002a70; }
-  .trust-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 28px; }
-  .trust-item { background: var(--white); padding: 14px 10px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
-  .trust-icon { font-size: 22px; }
-  .trust-label { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; line-height: 1.3; }
-  .trust-sub { font-size: 10px; color: var(--gray); }
-  .accordion-item { border-top: 1px solid var(--border); }
-  .accordion-item:last-child { border-bottom: 1px solid var(--border); }
-  .accordion-trigger { width: 100%; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 16px 0; font-family: var(--ff-body); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--black); text-align: left; }
-  .accordion-chevron { font-size: 18px; transition: transform .3s; font-weight: 300; }
-  .accordion-chevron.open { transform: rotate(180deg); }
-  .accordion-body { padding-bottom: 16px; font-size: 13px; color: var(--gray); line-height: 1.7; }
-  .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin-top: 8px; }
-  .spec-item { display: flex; flex-direction: column; }
-  .spec-k { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray); }
-  .spec-v { font-size: 13px; color: var(--black); font-weight: 500; }
+/* CART PAGE */
+.cart-page { max-width: 1100px; margin: 0 auto; padding: 48px 32px 80px; }
+.page-title { font-family: var(--ff-display); font-size: 52px; letter-spacing: 0.04em; margin-bottom: 32px; }
+.cart-page-layout { display: grid; grid-template-columns: 1fr 380px; gap: 40px; align-items: start; }
+.cart-items-list { background: var(--white); border: 1px solid var(--border); }
+.cart-page-item { display: flex; gap: 16px; align-items: center; padding: 20px 24px; border-bottom: 1px solid var(--border); }
+.cart-page-item:last-child { border-bottom: none; }
+.cart-page-img { width: 88px; height: 88px; flex-shrink: 0; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.cart-page-img img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
+.cart-page-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+.cart-page-info { flex: 1; }
+.cart-page-name { font-size: 16px; font-weight: 800; margin-bottom: 2px; }
+.cart-page-sub { font-size: 12px; color: var(--gray); margin-bottom: 12px; }
+.cart-page-ctrl { display: flex; align-items: center; gap: 10px; }
+.cpqb { width: 30px; height: 30px; border: 1.5px solid var(--border); background: var(--white); cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all .2s; }
+.cpqb:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+.cpqn { font-size: 15px; font-weight: 700; min-width: 28px; text-align: center; }
+.cp-remove { background: none; border: none; cursor: pointer; color: var(--gray); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; transition: color .2s; margin-left: 8px; }
+.cp-remove:hover { color: var(--red); }
+.cart-page-price { font-family: var(--ff-display); font-size: 22px; flex-shrink: 0; }
 
-  /* FEATURES */
-  .features-strip { background: var(--vw-blue); color: var(--white); padding: 48px 32px; }
-  .features-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
-  .feat-item { text-align: center; }
-  .feat-icon { font-size: 32px; margin-bottom: 12px; }
-  .feat-title { font-family: var(--ff-display); font-size: 18px; letter-spacing: 0.04em; margin-bottom: 4px; }
-  .feat-desc { font-size: 12px; opacity: 0.7; line-height: 1.5; }
+.cart-summary-box { background: var(--white); border: 1px solid var(--border); padding: 28px; position: sticky; top: 80px; }
+.summary-title { font-family: var(--ff-display); font-size: 22px; letter-spacing: 0.04em; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.summary-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--gray); margin-bottom: 10px; }
+.summary-row.total { font-family: var(--ff-display); font-size: 26px; color: var(--black); margin-top: 14px; padding-top: 14px; border-top: 2px solid var(--black); }
+.summary-free { color: #27ae60; font-weight: 700; }
+.coupon-row { display: flex; gap: 8px; margin: 16px 0; }
+.coupon-input { flex: 1; border: 1.5px solid var(--border); padding: 10px 12px; font-family: var(--ff-body); font-size: 13px; outline: none; transition: border-color .2s; }
+.coupon-input:focus { border-color: var(--black); }
+.coupon-btn { background: var(--black); color: var(--white); border: none; padding: 10px 16px; font-family: var(--ff-body); font-size: 11px; font-weight: 800; cursor: pointer; letter-spacing: 0.08em; text-transform: uppercase; transition: background .2s; }
+.coupon-btn:hover { background: var(--red); }
+.checkout-btn { width: 100%; background: var(--red); color: var(--white); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 22px; letter-spacing: 0.08em; padding: 16px; transition: background .2s; margin-top: 4px; }
+.checkout-btn:hover { background: #c0303b; }
+.secure-note { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 12px; font-size: 11px; color: var(--gray); }
 
-  /* REVIEWS */
-  .reviews-section { max-width: 1280px; margin: 0 auto; padding: 80px 32px; }
-  .section-title { font-family: var(--ff-display); font-size: 40px; letter-spacing: 0.02em; margin-bottom: 8px; }
-  .section-subtitle { font-size: 14px; color: var(--gray); margin-bottom: 40px; }
-  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .review-card { border: 1px solid var(--border); padding: 24px; transition: box-shadow .2s; }
-  .review-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,.08); }
-  .review-stars { color: var(--accent); margin-bottom: 12px; }
-  .review-text { font-size: 13px; color: var(--black); line-height: 1.6; margin-bottom: 16px; }
-  .review-author { font-size: 12px; color: var(--gray); font-weight: 600; }
-  .review-verified { font-size: 11px; color: #27ae60; font-weight: 600; margin-top: 4px; }
+/* SUCCESS */
+.success-wrap { max-width: 560px; margin: 80px auto; padding: 0 32px; text-align: center; }
+.success-icon { font-size: 64px; margin-bottom: 20px; }
+.success-title { font-family: var(--ff-display); font-size: 52px; letter-spacing: 0.04em; margin-bottom: 12px; }
+.success-sub { font-size: 15px; color: var(--gray); line-height: 1.7; margin-bottom: 32px; }
+.success-box { background: var(--white); border: 1px solid var(--border); padding: 24px; margin-bottom: 32px; text-align: left; }
+.success-box-title { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
+.success-row { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; }
+.back-btn { background: var(--black); color: var(--white); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 22px; letter-spacing: 0.08em; padding: 16px 44px; transition: background .2s; }
+.back-btn:hover { background: var(--red); }
 
-  /* FOOTER */
-  footer { background: var(--black); color: rgba(255,255,255,.6); padding: 48px 32px; }
-  .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-  .footer-logo { font-family: var(--ff-display); font-size: 20px; color: var(--white); letter-spacing: 0.04em; }
-  .footer-copy { font-size: 12px; }
-  .footer-links { display: flex; gap: 20px; }
-  .footer-links a { font-size: 12px; color: rgba(255,255,255,.5); text-decoration: none; }
-  .footer-links a:hover { color: var(--white); }
+/* FEATURES BAR */
+.features-bar { background: var(--black); color: var(--white); padding: 36px 32px; }
+.features-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.feat { text-align: center; }
+.feat-icon { font-size: 28px; margin-bottom: 8px; }
+.feat-title { font-family: var(--ff-display); font-size: 16px; letter-spacing: 0.06em; margin-bottom: 3px; }
+.feat-desc { font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.5; }
 
-  /* ============ CHECKOUT ============ */
-  .checkout-layout { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 48px; padding: 48px 32px 80px; align-items: start; }
-  .checkout-sidebar { position: sticky; top: 80px; }
-  .checkout-step-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
-  .checkout-section-title { font-family: var(--ff-display); font-size: 28px; letter-spacing: 0.02em; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-  .form-row.single { grid-template-columns: 1fr; }
-  .form-group { display: flex; flex-direction: column; gap: 5px; }
-  .form-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray); }
-  .form-input, .form-select { border: 1.5px solid var(--border); background: var(--white); padding: 11px 14px; font-family: var(--ff-body); font-size: 14px; color: var(--black); outline: none; transition: border-color .2s; width: 100%; }
-  .form-input:focus, .form-select:focus { border-color: var(--black); }
-  .form-input.error { border-color: #ff4444; }
-  .payment-tabs { display: flex; gap: 0; margin-bottom: 24px; border: 1.5px solid var(--border); }
-  .payment-tab { flex: 1; padding: 12px; background: var(--white); border: none; cursor: pointer; font-family: var(--ff-body); font-size: 13px; font-weight: 600; color: var(--gray); border-right: 1.5px solid var(--border); transition: all .2s; }
-  .payment-tab:last-child { border-right: none; }
-  .payment-tab.active { background: var(--black); color: var(--white); }
-  .card-icons { display: flex; gap: 8px; margin-bottom: 20px; }
-  .card-icon { width: 42px; height: 28px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; color: var(--gray); background: var(--gray-light); }
-  .pix-info { background: var(--sand-light); border: 1px solid var(--sand); padding: 20px; margin-bottom: 20px; }
-  .pix-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
-  .pix-desc { font-size: 13px; color: var(--gray); line-height: 1.5; }
-  .pix-discount { color: #27ae60; font-weight: 700; }
-  .boleto-info { background: var(--gray-light); border: 1px solid var(--border); padding: 20px; margin-bottom: 20px; }
-  .order-summary { background: var(--gray-light); border: 1px solid var(--border); padding: 28px; }
-  .summary-title { font-family: var(--ff-display); font-size: 20px; letter-spacing: 0.04em; margin-bottom: 20px; }
-  .summary-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
-  .summary-img-wrap { position: relative; flex-shrink: 0; }
-  .summary-img { width: 64px; height: 64px; background: var(--sand-light); border: 1px solid var(--border); overflow: hidden; display: flex; align-items: center; justify-content: center; }
-  .summary-img img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
-  .summary-item-info { flex: 1; }
-  .summary-item-name { font-size: 13px; font-weight: 600; line-height: 1.3; }
-  .summary-item-variant { font-size: 11px; color: var(--gray); }
-  .summary-item-qty { background: var(--black); color: var(--white); font-size: 10px; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: absolute; top: -6px; right: -6px; }
-  .summary-item-price { font-size: 13px; font-weight: 700; flex-shrink: 0; }
-  .summary-divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
-  .summary-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px; }
-  .summary-row.total { font-family: var(--ff-display); font-size: 22px; margin-top: 12px; }
-  .summary-row .label { color: var(--gray); }
-  .summary-row.total .label { color: var(--black); }
-  .summary-row .free { color: #27ae60; font-weight: 700; }
-  .coupon-row { display: flex; gap: 8px; margin: 16px 0; }
-  .coupon-input { flex: 1; border: 1.5px solid var(--border); padding: 10px 12px; font-family: var(--ff-body); font-size: 13px; outline: none; }
-  .coupon-btn { background: var(--black); color: var(--white); border: none; padding: 10px 16px; font-family: var(--ff-body); font-size: 12px; font-weight: 700; cursor: pointer; letter-spacing: 0.06em; }
-  .place-order-btn { width: 100%; background: var(--vw-blue); color: var(--white); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 22px; letter-spacing: 0.06em; padding: 16px; transition: background .2s; margin-top: 20px; }
-  .place-order-btn:hover { background: #002a70; }
-  .secure-checkout { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 12px; font-size: 11px; color: var(--gray); }
+/* RELATED */
+.related { max-width: 1300px; margin: 0 auto; padding: 56px 32px; }
+.related-title { font-family: var(--ff-display); font-size: 36px; letter-spacing: 0.04em; margin-bottom: 24px; }
+.related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 
-  /* SUCCESS */
-  .success-page { max-width: 600px; margin: 80px auto; padding: 0 32px; text-align: center; }
-  .success-icon { font-size: 64px; margin-bottom: 24px; }
-  .success-title { font-family: var(--ff-display); font-size: 48px; letter-spacing: 0.02em; margin-bottom: 16px; }
-  .success-sub { font-size: 15px; color: var(--gray); line-height: 1.6; margin-bottom: 32px; }
-  .success-order { background: var(--gray-light); border: 1px solid var(--border); padding: 24px; margin-bottom: 32px; text-align: left; }
-  .success-order-title { font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray); margin-bottom: 12px; }
-  .continue-btn { background: var(--black); color: var(--white); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 20px; letter-spacing: 0.06em; padding: 16px 40px; transition: background .2s; }
-  .continue-btn:hover { background: var(--vw-blue); }
+/* FOOTER */
+footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 44px 32px; }
+.footer-inner { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.footer-logo { font-family: var(--ff-display); font-size: 22px; color: var(--white); letter-spacing: 0.08em; }
+.footer-logo span { color: var(--red); }
+.footer-copy { font-size: 12px; margin-top: 4px; }
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color .2s; }
+.footer-links a:hover { color: var(--white); }
 
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .landing-hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-img-col { display: none; }
-    .hero-text-col { padding: 60px 32px; }
-    .hero-title { font-size: 64px; }
-    .products-grid { grid-template-columns: 1fr; }
-    .how-steps { grid-template-columns: repeat(2, 1fr); }
-    .product-layout { grid-template-columns: 1fr; gap: 32px; }
-    .gallery { position: static; }
-    .checkout-layout { grid-template-columns: 1fr; }
-    .checkout-sidebar { position: static; }
-    .features-inner { grid-template-columns: repeat(2, 1fr); }
-    .reviews-grid { grid-template-columns: 1fr; }
-    .stats-inner { grid-template-columns: repeat(2, 1fr); }
-    nav { display: none; }
-    .cart-drawer { width: 100vw; }
-  }
+/* EMPTY CART PAGE */
+.empty-cart-page { text-align: center; padding: 80px 32px; }
+.empty-cart-icon { font-size: 64px; margin-bottom: 20px; }
+.empty-cart-title { font-family: var(--ff-display); font-size: 40px; letter-spacing: 0.04em; margin-bottom: 12px; }
+.empty-cart-sub { font-size: 15px; color: var(--gray); margin-bottom: 32px; }
+.continue-shop-btn { background: var(--black); color: var(--white); border: none; cursor: pointer; font-family: var(--ff-display); font-size: 20px; letter-spacing: 0.08em; padding: 16px 40px; transition: background .2s; }
+.continue-shop-btn:hover { background: var(--red); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .related-grid { grid-template-columns: repeat(2, 1fr); }
+  .features-inner { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .hero-title { font-size: 56px; }
+  .hero-stats { gap: 28px; }
+  .products-grid { grid-template-columns: 1fr; }
+  .product-layout { grid-template-columns: 1fr; gap: 28px; }
+  .gallery { position: static; }
+  .cart-page-layout { grid-template-columns: 1fr; }
+  .cart-summary-box { position: static; }
+  .features-inner { grid-template-columns: 1fr 1fr; }
+  .related-grid { grid-template-columns: repeat(2, 1fr); }
+  nav { display: none; }
+  .cart-drawer { width: 100vw; right: -100vw; }
+  .checkout-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .hero { padding: 56px 20px; }
+  .catalog { padding: 40px 20px; }
+  .catalog-header { flex-direction: column; align-items: flex-start; }
+  .header-inner { padding: 0 20px; }
+  .related-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -337,24 +298,141 @@
 <script type="text/babel">
 const { useState, useEffect, useRef } = React;
 
-const PRICE_BASE = 649;
-const PRICE_WHEELS = 149;
-const PRICE_BUNDLE = 749;
-
-const variantLabel = v => v === 'bundle' ? 'Bundle – Gol G1 + Rodas BBS' : v === 'wheels' ? 'Rodas BBS' : 'VW Gol G1 – Edição Brasil';
-const variantImg = v => v === 'wheels' ? 'assets/rodas-bbs.png' : 'assets/gol-g1.png';
-
-const REVIEWS = [
-  { name: "Carlos M.", city: "São Paulo, SP", text: "Incrível! A riqueza de detalhes é impressionante. Chegou super bem embalado, em 3 dias.", rating: 5 },
-  { name: "Ana P.", city: "Porto Alegre, RS", text: "Presente para meu pai que cresceu com esse carro. Ele ficou emocionado. Qualidade premium.", rating: 5 },
-  { name: "Roberto S.", city: "Curitiba, PR", text: "Comprei com as rodas BBS e ficou show demais. Montei em um final de semana. Super recomendo!", rating: 5 },
-  { name: "Fernanda L.", city: "Rio de Janeiro, RJ", text: "A embalagem tipo container é um detalhe que amei. Já está exposto no escritório!", rating: 5 },
-  { name: "João V.", city: "Belo Horizonte, MG", text: "Licenciado oficial Volkswagen do Brasil. Produto premium, entrega rápida. Exatamente como nas fotos.", rating: 5 },
-  { name: "Mariana C.", city: "Campinas, SP", text: "Encaixes perfeitos. O Gol G1 ficou show. Comprei de presente e a pessoa amou!", rating: 5 },
+/* ========== PRODUTOS ========== */
+const PRODUCTS = [
+  {
+    id: 1, slug: 'porsche-911-rwb-red',
+    name: 'Porsche 911 RWB', subtitle: 'Edição Vermelha',
+    category: 'cars', price: 549, oldPrice: 699, pieces: 892,
+    colorBg: '#8B0000', emoji: '🚗', badge: 'DESTAQUE', badgeStyle: 'red',
+    img: 'assets/porsche-911-rwb-red.jpg',
+    description: 'Réplica icônica do Porsche 911 RWB em vermelho vibrante. Aerofólio traseiro imponente, rodas pretas e display de pista incluído. Um clássico que todo colecionador precisa ter.',
+    specs: { 'Modelo': 'Porsche 911 RWB', 'Peças': '892 peças', 'Escala': '1:8', 'Nível': 'Intermediário', 'Idade': '14+ anos', 'Display': 'Pista inclusa', 'Cor': 'Vermelho / Preto', 'Compatível': 'LEGO® padrão' }
+  },
+  {
+    id: 2, slug: 'porsche-911-turbo-black',
+    name: 'Porsche 911 Turbo', subtitle: 'Classic Black',
+    category: 'cars', price: 499, oldPrice: 649, pieces: 756,
+    colorBg: '#1a1a1a', emoji: '⚫', badge: 'CLÁSSICO', badgeStyle: 'black',
+    img: 'assets/porsche-911-turbo-black.jpg',
+    description: 'O lendário Porsche 911 Turbo em preto elegante com display de pista italiano. Detalhes minuciosos e construção robusta.',
+    specs: { 'Modelo': 'Porsche 911 Turbo', 'Peças': '756 peças', 'Escala': '1:8', 'Nível': 'Básico', 'Idade': '14+ anos', 'Display': 'Pista inclusa', 'Cor': 'Preto', 'Compatível': 'LEGO® padrão' }
+  },
+  {
+    id: 3, slug: 'audi-rs-touring-black',
+    name: 'Audi RS Touring', subtitle: 'Black Edition',
+    category: 'cars', price: 529, oldPrice: 679, pieces: 834,
+    colorBg: '#111827', emoji: '🚙', badge: 'NOVO', badgeStyle: 'red',
+    img: 'assets/audi-rs-touring-black.jpg',
+    description: 'Audi RS em preto total com bagageiro no teto. Design moderno e esportivo com detalhes impressionantes de engenharia.',
+    specs: { 'Modelo': 'Audi RS Touring', 'Peças': '834 peças', 'Escala': '1:8', 'Nível': 'Intermediário', 'Idade': '14+ anos', 'Display': 'Sem display', 'Cor': 'Preto Total', 'Compatível': 'LEGO® padrão' }
+  },
+  {
+    id: 4, slug: 'bmw-e30-m3-white',
+    name: 'BMW E30 M3', subtitle: 'M Power Edition',
+    category: 'cars', price: 579, oldPrice: 729, pieces: 921,
+    colorBg: '#555566', emoji: '🏎️', badge: 'FAVORITO', badgeStyle: 'yellow',
+    img: 'assets/bmw-e30-m3-white.jpg',
+    description: 'O lendário BMW E30 M3 com livery M Power em azul, vermelho e branco. Ícone do automobilismo europeu dos anos 80.',
+    specs: { 'Modelo': 'BMW E30 M3', 'Peças': '921 peças', 'Escala': '1:8', 'Nível': 'Avançado', 'Idade': '14+ anos', 'Display': 'Sem display', 'Cor': 'Branco / M Livery', 'Compatível': 'LEGO® padrão' }
+  },
+  {
+    id: 5, slug: 'pickup-hotrod-black',
+    name: 'Hot Rod Pickup', subtitle: 'Custom Black',
+    category: 'cars', price: 489, oldPrice: 629, pieces: 673,
+    colorBg: '#0a0a0a', emoji: '🛻', badge: 'CUSTOM', badgeStyle: 'red',
+    img: 'assets/pickup-hotrod-black.jpg',
+    description: 'Pickup hot rod customizada em preto com motor exposto em vermelho. Estilo brutal e único para colecionadores exigentes.',
+    specs: { 'Modelo': 'Hot Rod Pickup Custom', 'Peças': '673 peças', 'Escala': '1:8', 'Nível': 'Intermediário', 'Idade': '14+ anos', 'Display': 'Sem display', 'Cor': 'Preto / Motor Vermelho', 'Compatível': 'LEGO® padrão' }
+  },
+  {
+    id: 6, slug: 'porsche-911-christmas',
+    name: 'Porsche 911', subtitle: 'Christmas Edition',
+    category: 'cars', price: 549, oldPrice: 699, pieces: 810,
+    colorBg: '#1a3a1a', emoji: '🎄', badge: 'ESPECIAL', badgeStyle: 'red',
+    img: 'assets/porsche-911-christmas.jpg',
+    description: 'Edição especial de Natal com árvore de Natal no teto. O presente perfeito para amantes de carros e LEGO®.',
+    specs: { 'Modelo': 'Porsche 911 Xmas Ed.', 'Peças': '810 peças', 'Escala': '1:8', 'Nível': 'Intermediário', 'Idade': '14+ anos', 'Display': 'Sem display', 'Cor': 'Preto / Árvore de Natal', 'Compatível': 'LEGO® padrão' }
+  },
+  {
+    id: 7, slug: 'lancer-evo-red',
+    name: 'Mitsubishi Lancer Evo', subtitle: 'Rally Edition',
+    category: 'cars', price: 549, oldPrice: 699, pieces: 876,
+    colorBg: '#8B0000', emoji: '🏁', badge: 'RALLY', badgeStyle: 'red',
+    img: 'assets/lancer-evo-red.jpg',
+    description: 'Mitsubishi Lancer Evolution em vermelho com detalhes pretos e cinza. O ícone dos ralis mundiais em miniatura.',
+    specs: { 'Modelo': 'Mitsubishi Lancer Evo IX', 'Peças': '876 peças', 'Escala': '1:8', 'Nível': 'Intermediário', 'Idade': '14+ anos', 'Display': 'Sem display', 'Cor': 'Vermelho / Preto / Cinza', 'Compatível': 'LEGO® padrão' }
+  },
+  {
+    id: 8, slug: 'porsche-911-grey',
+    name: 'Porsche 911 Turbo', subtitle: 'Retro Grey',
+    category: 'cars', price: 499, oldPrice: 649, pieces: 789,
+    colorBg: '#6b7280', emoji: '🌫️', badge: 'RETRO', badgeStyle: 'black',
+    img: 'assets/porsche-911-grey.jpg',
+    description: 'Porsche 911 Turbo em cinza claro com pneus de flanco branco e rodas estrela de 5 pontas. Visual vintage impecável.',
+    specs: { 'Modelo': 'Porsche 911 Turbo', 'Peças': '789 peças', 'Escala': '1:8', 'Nível': 'Intermediário', 'Idade': '14+ anos', 'Display': 'Sem display', 'Cor': 'Cinza / Branco', 'Compatível': 'LEGO® padrão' }
+  },
+  {
+    id: 9, slug: 'lamborghini-gt3-yellow',
+    name: 'GT3 Supercar', subtitle: 'Yellow Racing',
+    category: 'cars', price: 589, oldPrice: 749, pieces: 934,
+    colorBg: '#92400e', emoji: '⚡', badge: 'PREMIUM', badgeStyle: 'yellow',
+    img: 'assets/lamborghini-gt3-yellow.jpg',
+    description: 'Supercar GT3 em amarelo vibrante com aerofólio bicolor e rodas pretas. Velocidade e elegância em cada detalhe.',
+    specs: { 'Modelo': 'GT3 Supercar', 'Peças': '934 peças', 'Escala': '1:8', 'Nível': 'Avançado', 'Idade': '14+ anos', 'Display': 'Sem display', 'Cor': 'Amarelo / Preto', 'Compatível': 'LEGO® padrão' }
+  },
+  {
+    id: 10, slug: 'porsche-911-classic-black',
+    name: 'Porsche 911', subtitle: 'Classic Black',
+    category: 'cars', price: 479, oldPrice: 619, pieces: 712,
+    colorBg: '#111111', emoji: '🖤', badge: null, badgeStyle: null,
+    img: 'assets/porsche-911-classic-black.jpg',
+    description: 'Porsche 911 clássico em preto com faróis amarelos de neblina. Elegância intemporal. Um must-have para colecionadores.',
+    specs: { 'Modelo': 'Porsche 911 Classic', 'Peças': '712 peças', 'Escala': '1:8', 'Nível': 'Básico', 'Idade': '14+ anos', 'Display': 'Sem display', 'Cor': 'Preto / Faróis Amarelos', 'Compatível': 'LEGO® padrão' }
+  },
+  {
+    id: 11, slug: 'display-intersecao',
+    name: 'Cruzamento Urbano', subtitle: 'Display com Jardins',
+    category: 'displays', price: 299, oldPrice: 389, pieces: 445,
+    colorBg: '#1a4731', emoji: '🌿', badge: 'CENÁRIO', badgeStyle: 'black',
+    img: 'assets/display-intersecao.jpg',
+    description: 'Cruzamento urbano com canteiros floridos nos quatro cantos. Perfeito para expor seus carros com estilo.',
+    specs: { 'Tipo': 'Display Urbano', 'Peças': '445 peças', 'Tamanho': '32x32 studs', 'Nível': 'Básico', 'Idade': '10+ anos', 'Flores': 'Incluídas (6 vasos)', 'Uso': 'Exposição', 'Compatível': 'LEGO® padrão' }
+  },
+  {
+    id: 12, slug: 'display-estacionamento',
+    name: 'Estacionamento Premium', subtitle: 'Display com Plaquinhas P',
+    category: 'displays', price: 349, oldPrice: 449, pieces: 512,
+    colorBg: '#374151', emoji: '🅿️', badge: 'CENÁRIO', badgeStyle: 'black',
+    img: 'assets/display-estacionamento.jpg',
+    description: 'Estacionamento com 2 vagas demarcadas, plaquinhas de estacionamento, jardins floridos e poste de luz.',
+    specs: { 'Tipo': 'Display Estacionamento', 'Peças': '512 peças', 'Vagas': '2 vagas', 'Nível': 'Básico', 'Idade': '10+ anos', 'Inclui': 'Poste + jardins', 'Uso': 'Exposição', 'Compatível': 'LEGO® padrão' }
+  },
+  {
+    id: 13, slug: 'diorama-garagem',
+    name: 'Diorama Garagem', subtitle: 'Oficina Completa',
+    category: 'displays', price: 699, oldPrice: 899, pieces: 1124,
+    colorBg: '#4a2c0a', emoji: '🔧', badge: 'PREMIUM', badgeStyle: 'yellow',
+    img: 'assets/diorama-garagem.jpg',
+    description: 'Garagem mecânica completa com bancada de ferramentas, pneus, macaco hidráulico, empilhadeira e muito mais. Nível premium.',
+    specs: { 'Tipo': 'Diorama 3D', 'Peças': '1124 peças', 'Dimensões': '40x40x30cm', 'Nível': 'Avançado', 'Idade': '14+ anos', 'Inclui': 'Acessórios completos', 'Uso': 'Exposição / Coleção', 'Compatível': 'LEGO® padrão' }
+  },
+  {
+    id: 14, slug: 'display-pista',
+    name: 'Display Pista Racing', subtitle: 'Base com Meio-fio',
+    category: 'displays', price: 249, oldPrice: 319, pieces: 234,
+    colorBg: '#1f2937', emoji: '🏁', badge: null, badgeStyle: null,
+    img: 'assets/display-pista.jpg',
+    description: 'Base display de pista com meio-fio vermelho e branco italiano. Encaixe para carro incluído. Ideal para exposição.',
+    specs: { 'Tipo': 'Display Pista', 'Peças': '234 peças', 'Tamanho': 'Compacto', 'Nível': 'Básico', 'Idade': '10+ anos', 'Cores': 'Vermelho/Branco', 'Uso': 'Exposição de carro', 'Compatível': 'LEGO® padrão' }
+  },
 ];
 
-function Stars({ count = 5 }) {
-  return <span className="stars">{'★'.repeat(count)}</span>;
+const fmtPrice = v => v.toLocaleString('pt-BR');
+const discount = p => Math.round((1 - p.price / p.oldPrice) * 100);
+
+function Stars() {
+  return <span className="stars">★★★★★</span>;
 }
 
 function AccordionItem({ title, children, defaultOpen = false }) {
@@ -363,17 +441,30 @@ function AccordionItem({ title, children, defaultOpen = false }) {
     <div className="accordion-item">
       <button className="accordion-trigger" onClick={() => setOpen(o => !o)}>
         {title}
-        <span className={`accordion-chevron ${open ? 'open' : ''}`}>⌄</span>
+        <span className={`accordion-icon ${open ? 'open' : ''}`}>⌄</span>
       </button>
       {open && <div className="accordion-body">{children}</div>}
     </div>
   );
 }
 
-/* ===== CART DRAWER ===== */
-function CartDrawer({ cart, open, onClose, onRemove, onQtyChange, onCheckout }) {
-  const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+/* ========== IMAGE COM FALLBACK ========== */
+function ProdImg({ product, style }) {
+  const [err, setErr] = useState(false);
+  return (
+    <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(145deg, ${product.colorBg}ee, ${product.colorBg}77)` }}>
+      <div className="card-img-fallback">
+        <span className="emoji">{product.emoji}</span>
+        <span className="car-name">{product.name}</span>
+      </div>
+      {!err && <img src={product.img} alt={product.name} onError={() => setErr(true)} style={style} />}
+    </div>
+  );
+}
 
+/* ========== CART DRAWER ========== */
+function CartDrawer({ cart, open, onClose, onRemove, onQtyChange, goCart }) {
+  const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -386,7 +477,7 @@ function CartDrawer({ cart, open, onClose, onRemove, onQtyChange, onCheckout }) 
         <div className="cart-header">
           <div className="cart-title">
             CARRINHO
-            {cart.length > 0 && <span style={{fontSize:14,fontFamily:'var(--ff-body)',fontWeight:400,color:'var(--gray)',marginLeft:8}}>
+            {cart.length > 0 && <span style={{fontSize:13,fontFamily:'var(--ff-body)',fontWeight:400,color:'rgba(255,255,255,0.5)',marginLeft:8}}>
               ({cart.reduce((s,i)=>s+i.qty,0)} {cart.reduce((s,i)=>s+i.qty,0)===1?'item':'itens'})
             </span>}
           </div>
@@ -396,28 +487,27 @@ function CartDrawer({ cart, open, onClose, onRemove, onQtyChange, onCheckout }) 
         <div className="cart-body">
           {cart.length === 0 ? (
             <div className="cart-empty">
-              <div className="cart-empty-icon">🧱</div>
-              <div className="cart-empty-text">Seu carrinho está vazio.<br/>Adicione um produto para continuar.</div>
+              <div className="cart-empty-icon">🛒</div>
+              <div className="cart-empty-text">Seu carrinho está vazio.<br/>Adicione um modelo para continuar.</div>
+              <button className="drawer-shop-btn" onClick={onClose}>VER MODELOS</button>
             </div>
           ) : cart.map((item, i) => (
-            <div className="cart-item" key={`${item.variant}-${i}`}>
-              <div className="cart-item-img">
-                <img src={variantImg(item.variant)} alt={variantLabel(item.variant)} />
+            <div className="cart-item" key={`${item.id}-${i}`}>
+              <div className="cart-item-img" style={{background:`${item.colorBg}33`}}>
+                <div className="cart-item-img-placeholder">{item.emoji}</div>
               </div>
               <div className="cart-item-info">
-                <div className="cart-item-name">{variantLabel(item.variant)}</div>
-                <div className="cart-item-variant">Licenciado VW Brasil</div>
+                <div className="cart-item-name">{item.name}</div>
+                <div className="cart-item-sub">{item.subtitle}</div>
                 <div className="cart-item-controls">
-                  <button className="cart-qty-btn" onClick={() => onQtyChange(i, item.qty - 1)}>−</button>
+                  <button className="cart-qty-btn" onClick={() => onQtyChange(i, item.qty-1)}>−</button>
                   <span className="cart-qty-num">{item.qty}</span>
-                  <button className="cart-qty-btn" onClick={() => onQtyChange(i, item.qty + 1)}>+</button>
+                  <button className="cart-qty-btn" onClick={() => onQtyChange(i, item.qty+1)}>+</button>
                 </div>
               </div>
               <div className="cart-item-right">
-                <div className="cart-item-price">R$ {(item.price * item.qty).toLocaleString('pt-BR')}</div>
-                <button className="cart-remove" onClick={() => onRemove(i)}>
-                  <span>×</span> Remover
-                </button>
+                <div className="cart-item-price">R$ {fmtPrice(item.price * item.qty)}</div>
+                <button className="cart-remove" onClick={() => onRemove(i)}>Remover</button>
               </div>
             </div>
           ))}
@@ -425,24 +515,11 @@ function CartDrawer({ cart, open, onClose, onRemove, onQtyChange, onCheckout }) 
 
         {cart.length > 0 && (
           <div className="cart-footer">
-            <div className="cart-subtotal">
-              <span>Subtotal</span>
-              <span>R$ {subtotal.toLocaleString('pt-BR')}</span>
-            </div>
-            <div className="cart-subtotal" style={{color:'#27ae60',fontWeight:600}}>
-              <span>Frete</span>
-              <span>GRÁTIS</span>
-            </div>
-            <div className="cart-total">
-              <span>Total</span>
-              <span>R$ {subtotal.toLocaleString('pt-BR')}</span>
-            </div>
-            <button className="cart-checkout-btn" onClick={onCheckout}>
-              FINALIZAR COMPRA
-            </button>
-            <button className="cart-continue-btn" onClick={onClose}>
-              Continuar comprando
-            </button>
+            <div className="cart-subtotal-row"><span>Subtotal</span><span>R$ {fmtPrice(subtotal)}</span></div>
+            <div className="cart-subtotal-row" style={{color:'#27ae60',fontWeight:700}}><span>Frete</span><span>GRÁTIS</span></div>
+            <div className="cart-total-row"><span>Total</span><span>R$ {fmtPrice(subtotal)}</span></div>
+            <button className="cart-checkout-btn" onClick={() => { onClose(); goCart(); }}>FINALIZAR COMPRA</button>
+            <button className="cart-view-btn" onClick={() => { onClose(); goCart(); }}>VER CARRINHO COMPLETO</button>
           </div>
         )}
       </div>
@@ -450,28 +527,25 @@ function CartDrawer({ cart, open, onClose, onRemove, onQtyChange, onCheckout }) 
   );
 }
 
-/* ===== HEADER ===== */
-function Header({ cartCount, onCartClick, setPage }) {
+/* ========== HEADER ========== */
+function Header({ cartCount, onCartClick, page, setPage }) {
   return (
     <>
       <div className="ann-bar">
-        🚚 Frete grátis para todo o Brasil &nbsp;|&nbsp; <span>PARCELAMENTO EM 12X SEM JUROS</span> &nbsp;|&nbsp; Licenciado Volkswagen do Brasil
+        🚚 Frete grátis para todo o Brasil &nbsp;·&nbsp; <strong>12X SEM JUROS</strong> &nbsp;·&nbsp; Peças compatíveis LEGO®
       </div>
       <header>
         <div className="header-inner">
-          <span className="logo" onClick={() => setPage('landing')}>
-            POWER<span style={{color:'var(--accent)'}}>BUILD</span><span style={{fontSize:'10px',fontFamily:'var(--ff-body)',fontWeight:600,color:'var(--gray)',letterSpacing:'0.06em'}}>®</span>
-          </span>
+          <span className="logo" onClick={() => setPage('home')}>FAHA<span>BLOKS</span></span>
           <nav>
-            <a onClick={() => setPage('landing')}>Início</a>
-            <a onClick={() => setPage('product')}>Produto</a>
-            <a>Coleção</a>
+            <a className={page==='home'?'active':''} onClick={() => setPage('home')}>Início</a>
+            <a onClick={() => setPage('home')}>Carros</a>
+            <a onClick={() => setPage('home')}>Displays</a>
             <a>Sobre</a>
           </nav>
-          <div style={{display:'flex',alignItems:'center',gap:16}}>
+          <div className="header-right">
             <button className="cart-btn" onClick={onCartClick}>
-              <span>🛒</span>
-              <span>Carrinho</span>
+              🛒 Carrinho
               {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
             </button>
           </div>
@@ -481,193 +555,109 @@ function Header({ cartCount, onCartClick, setPage }) {
   );
 }
 
-/* ===== LANDING PAGE ===== */
-function LandingPage({ setPage, onAddToCart }) {
+/* ========== PRODUCT CARD ========== */
+function ProductCard({ product, onAdd, onClick }) {
+  const [added, setAdded] = useState(false);
+  const handleAdd = (e) => {
+    e.stopPropagation();
+    onAdd(product);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1600);
+  };
+  return (
+    <div className="product-card" onClick={onClick}>
+      <div className="card-img-wrap">
+        {product.badge && <span className={`card-badge ${product.badgeStyle}`}>{product.badge}</span>}
+        <ProdImg product={product} style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain',padding:'20px',zIndex:2}} />
+      </div>
+      <div className="card-body">
+        <div className="card-cat">{product.category === 'cars' ? '🚗 Carro' : '🏙️ Display / Cenário'}</div>
+        <div className="card-name">{product.name}</div>
+        <div className="card-sub">{product.subtitle} · {product.pieces.toLocaleString()} peças</div>
+        <div className="card-footer">
+          <div className="card-prices">
+            <span className="card-price">R$ {fmtPrice(product.price)}</span>
+            <span className="card-old">R$ {fmtPrice(product.oldPrice)}</span>
+          </div>
+          <button className={`card-add-btn ${added ? 'added' : ''}`} onClick={handleAdd}>
+            {added ? '✓ OK!' : '+ CARRINHO'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ========== HOME PAGE ========== */
+function HomePage({ setPage, setSelectedProduct, onAdd }) {
+  const [filter, setFilter] = useState('all');
+
+  const filtered = filter === 'all' ? PRODUCTS
+    : filter === 'cars' ? PRODUCTS.filter(p => p.category === 'cars')
+    : PRODUCTS.filter(p => p.category === 'displays');
+
+  const goProduct = (p) => { setSelectedProduct(p); setPage('product'); };
+
   return (
     <div>
       {/* HERO */}
-      <section className="landing-hero">
-        <div className="hero-text-col">
-          <div className="hero-eyebrow">
-            <span className="hero-eyebrow-dot" />
-            <span className="hero-eyebrow-text">Edição Especial Brasil · Licenciado VW</span>
-          </div>
-          <h1 className="hero-title">
-            VW
-            <span className="accent-line">GOL G1</span>
-          </h1>
-          <p className="hero-subtitle">
-            O ícone do automobilismo nacional agora em 1.247 peças. Licenciado Volkswagen do Brasil. Edição limitada.
-          </p>
-          <div className="hero-price-row">
-            <span className="hero-price">R$ 649</span>
-            <span className="hero-price-old">R$ 799</span>
-            <span className="hero-price-badge">-19%</span>
-          </div>
-          <div className="hero-cta-row">
-            <button className="hero-cta-primary" onClick={() => setPage('product')}>
-              VER PRODUTO
-            </button>
-            <button className="hero-cta-secondary" onClick={() => onAddToCart({ variant:'gol', qty:1, price:PRICE_BASE })}>
-              + ADICIONAR AO CARRINHO
-            </button>
-          </div>
-          <div className="hero-trust-strip">
-            <div className="hero-trust-item">🚚 <strong>Frete grátis</strong></div>
-            <div className="hero-trust-item">🔒 <strong>Pagamento seguro</strong></div>
-            <div className="hero-trust-item">⭐ <strong>487 avaliações</strong></div>
-            <div className="hero-trust-item">🏆 <strong>Licença oficial</strong></div>
-          </div>
+      <div className="hero">
+        <div className="hero-eyebrow">
+          <span className="hero-dot" />
+          <span className="hero-eyebrow-text">Coleção Premium · Peças compatíveis LEGO®</span>
         </div>
-        <div className="hero-img-col">
-          <div className="hero-img-wrap">
-            <div className="hero-img-glow" />
-            <img className="hero-img-main" src="assets/gol-g1.png" alt="VW Gol G1" />
-            <div className="hero-img-badge">
-              <div className="hero-img-badge-top">Total de peças</div>
-              <div className="hero-img-badge-num">1.247</div>
-              <div className="hero-img-badge-sub">Escala 1:8 · 28cm</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* STATS */}
-      <div className="stats-bar">
-        <div className="stats-inner">
-          <div className="stat-item"><div className="stat-num">+50K</div><div className="stat-label">Clientes Felizes</div></div>
-          <div className="stat-item"><div className="stat-num">4.98★</div><div className="stat-label">Avaliação Média</div></div>
-          <div className="stat-item"><div className="stat-num">1.247</div><div className="stat-label">Peças Incluídas</div></div>
-          <div className="stat-item"><div className="stat-num">100%</div><div className="stat-label">Licença VW Oficial</div></div>
+        <h1 className="hero-title">
+          CARROS DE MONTAR
+          <span>PREMIUM</span>
+        </h1>
+        <p className="hero-sub">
+          Modelos icônicos em escala 1:8 com detalhes impressionantes. Da pista para a sua estante.
+        </p>
+        <div className="hero-stats">
+          <div><div className="hero-stat-num">+50K</div><div className="hero-stat-label">Clientes satisfeitos</div></div>
+          <div><div className="hero-stat-num">14</div><div className="hero-stat-label">Modelos disponíveis</div></div>
+          <div><div className="hero-stat-num">4.97★</div><div className="hero-stat-label">Avaliação média</div></div>
+          <div><div className="hero-stat-num">100%</div><div className="hero-stat-label">Frete grátis</div></div>
         </div>
       </div>
 
-      {/* PRODUCTS */}
-      <div className="landing-products">
-        <div className="landing-section-header">
-          <div>
-            <div className="landing-section-title">COLEÇÃO<br/>NACIONAL</div>
+      {/* CATALOG */}
+      <div className="catalog">
+        <div className="catalog-header">
+          <div className="catalog-title">NOSSA COLEÇÃO</div>
+          <div className="filter-tabs">
+            <button className={`filter-tab ${filter==='all'?'active':''}`} onClick={() => setFilter('all')}>Todos ({PRODUCTS.length})</button>
+            <button className={`filter-tab ${filter==='cars'?'active':''}`} onClick={() => setFilter('cars')}>🚗 Carros ({PRODUCTS.filter(p=>p.category==='cars').length})</button>
+            <button className={`filter-tab ${filter==='displays'?'active':''}`} onClick={() => setFilter('displays')}>🏙️ Displays ({PRODUCTS.filter(p=>p.category==='displays').length})</button>
           </div>
-          <div className="landing-section-sub">Escolha seu kit ou bundle</div>
         </div>
         <div className="products-grid">
-
-          {/* Card 1 */}
-          <div className="product-card" onClick={() => setPage('product')}>
-            <div className="product-card-img">
-              <span className="product-card-badge sale">-19% OFF</span>
-              <img src="assets/gol-g1.png" alt="VW Gol G1" />
-            </div>
-            <div className="product-card-body">
-              <div className="product-card-name">VW Gol G1 – Edição Brasil</div>
-              <div className="product-card-desc">1.247 peças · Escala 1:8 · Container display exclusivo · Licenciado VW</div>
-              <div className="product-card-footer">
-                <div>
-                  <span className="product-card-price">R$ 649</span>
-                  <span className="product-card-old">R$ 799</span>
-                </div>
-                <button className="product-card-btn" onClick={e => { e.stopPropagation(); setPage('product'); }}>
-                  VER MAIS
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="product-card" onClick={() => setPage('product')}>
-            <div className="product-card-img">
-              <span className="product-card-badge">ACESSÓRIO</span>
-              <img src="assets/rodas-bbs.png" alt="Rodas BBS" />
-            </div>
-            <div className="product-card-body">
-              <div className="product-card-name">Rodas BBS – Kit Upgrade</div>
-              <div className="product-card-desc">4 rodas BBS em escala · Aro esportivo · Compatível com Gol G1</div>
-              <div className="product-card-footer">
-                <div>
-                  <span className="product-card-price">R$ 149</span>
-                  <span className="product-card-old">R$ 199</span>
-                </div>
-                <button className="product-card-btn" onClick={e => { e.stopPropagation(); onAddToCart({ variant:'wheels', qty:1, price:PRICE_WHEELS }); }}>
-                  + CARRINHO
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 3 – Bundle */}
-          <div className="product-card" onClick={() => setPage('product')} style={{borderColor:'var(--accent)',borderWidth:2}}>
-            <div className="product-card-img" style={{background:'#fffae8'}}>
-              <span className="product-card-badge" style={{background:'var(--accent)',color:'var(--black)'}}>🔥 BUNDLE</span>
-              <img src="assets/gol-g1.png" alt="Bundle" />
-            </div>
-            <div className="product-card-body">
-              <div className="product-card-name">Bundle Completo – Gol G1 + BBS</div>
-              <div className="product-card-desc">Gol G1 + Kit Rodas BBS · Economia de R$ 49 · Frete grátis</div>
-              <div className="product-card-footer">
-                <div>
-                  <span className="product-card-price">R$ 749</span>
-                  <span className="product-card-old">R$ 998</span>
-                </div>
-                <button className="product-card-btn" style={{background:'var(--accent)',color:'var(--black)'}} onClick={e => { e.stopPropagation(); onAddToCart({ variant:'bundle', qty:1, price:PRICE_BUNDLE }); }}>
-                  + CARRINHO
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* HOW IT WORKS */}
-      <div className="how-it-works">
-        <div className="how-inner">
-          <div className="how-title">COMO FUNCIONA</div>
-          <div className="how-steps">
-            <div className="how-step">
-              <div className="how-step-num">01</div>
-              <div className="how-step-title">Escolha seu kit</div>
-              <div className="how-step-desc">Selecione o modelo base ou o bundle com as rodas BBS.</div>
-            </div>
-            <div className="how-step">
-              <div className="how-step-num">02</div>
-              <div className="how-step-title">Finalize o pedido</div>
-              <div className="how-step-desc">Pagamento seguro via cartão, PIX ou boleto em até 12x sem juros.</div>
-            </div>
-            <div className="how-step">
-              <div className="how-step-num">03</div>
-              <div className="how-step-title">Receba em casa</div>
-              <div className="how-step-desc">Enviamos via Sedex com rastreamento. Frete grátis para todo o Brasil.</div>
-            </div>
-            <div className="how-step">
-              <div className="how-step-num">04</div>
-              <div className="how-step-title">Monte e exponha</div>
-              <div className="how-step-desc">Instruções detalhadas incluídas. Container display exclusivo para expor.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* REVIEWS */}
-      <div className="reviews-section">
-        <div className="section-title">O QUE NOSSOS<br/>CLIENTES DIZEM</div>
-        <div className="section-subtitle">487 avaliações verificadas · média 4.98 ★</div>
-        <div className="reviews-grid">
-          {REVIEWS.map((r, i) => (
-            <div className="review-card" key={i}>
-              <div className="review-stars"><Stars count={r.rating} /></div>
-              <p className="review-text">"{r.text}"</p>
-              <div className="review-author">{r.name} — {r.city}</div>
-              <div className="review-verified">✓ Compra verificada</div>
-            </div>
+          {filtered.map(p => (
+            <ProductCard
+              key={p.id}
+              product={p}
+              onAdd={onAdd}
+              onClick={() => goProduct(p)}
+            />
           ))}
+        </div>
+      </div>
+
+      {/* FEATURES */}
+      <div className="features-bar">
+        <div className="features-inner">
+          <div className="feat"><div className="feat-icon">🧱</div><div className="feat-title">LEGO® COMPATÍVEL</div><div className="feat-desc">Peças padrão intercambiáveis com sua coleção.</div></div>
+          <div className="feat"><div className="feat-icon">🚚</div><div className="feat-title">FRETE GRÁTIS</div><div className="feat-desc">Para todo o Brasil, via Sedex rastreado.</div></div>
+          <div className="feat"><div className="feat-icon">🔒</div><div className="feat-title">COMPRA SEGURA</div><div className="feat-desc">SSL certificado · Pagamento 100% seguro.</div></div>
+          <div className="feat"><div className="feat-icon">🔄</div><div className="feat-title">30 DIAS DE TROCA</div><div className="feat-desc">Peça faltando? Reposição gratuita garantida.</div></div>
         </div>
       </div>
 
       <footer>
         <div className="footer-inner">
           <div>
-            <div className="footer-logo">POWER<span style={{color:'var(--accent)'}}>BUILD</span>®</div>
-            <div className="footer-copy" style={{marginTop:6}}>© 2025 PowerBuild Brasil. CNPJ 00.000.000/0001-00</div>
+            <div className="footer-logo">FAHA<span>BLOKS</span></div>
+            <div className="footer-copy">© 2025 FAHABLOKS. Carros de Montar Premium.</div>
           </div>
           <div className="footer-links">
             <a href="#">Política de Privacidade</a>
@@ -681,149 +671,137 @@ function LandingPage({ setPage, onAddToCart }) {
   );
 }
 
-/* ===== PRODUCT PAGE ===== */
-function ProductPage({ onAddToCart, onBuyNow, setPage }) {
-  const [activeImg, setActiveImg] = useState(0);
-  const [variant, setVariant] = useState('gol');
+/* ========== PRODUCT PAGE ========== */
+function ProductPage({ product, onAdd, setPage, setSelectedProduct }) {
   const [qty, setQty] = useState(1);
-  const [addedFeedback, setAddedFeedback] = useState(false);
-
-  const imgs = [
-    { src: 'assets/gol-g1.png', label: 'VW Gol G1' },
-    { src: 'assets/rodas-bbs.png', label: 'Rodas BBS' },
-    { src: 'assets/gol-g1.png', label: 'Detalhe' },
-    { src: 'assets/rodas-bbs.png', label: 'Detalhe Rodas' },
-  ];
-
-  const currentPrice = variant === 'bundle' ? PRICE_BUNDLE : variant === 'wheels' ? PRICE_WHEELS : PRICE_BASE;
-  const oldPrice = variant === 'bundle' ? 998 : variant === 'wheels' ? 199 : 799;
-  const installment = (currentPrice / 12).toFixed(2);
+  const [added, setAdded] = useState(false);
 
   const handleAdd = () => {
-    onAddToCart({ variant, qty, price: currentPrice });
-    setAddedFeedback(true);
-    setTimeout(() => setAddedFeedback(false), 1800);
+    for (let i = 0; i < qty; i++) onAdd(product);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1800);
   };
+
+  const related = PRODUCTS.filter(p => p.id !== product.id && p.category === product.category).slice(0, 4);
+  const installment = (product.price / 12).toFixed(2).replace('.', ',');
 
   return (
     <div>
       <div className="breadcrumb">
-        <a onClick={() => setPage('landing')}>Início</a>
+        <a onClick={() => setPage('home')}>Início</a>
         <span className="breadcrumb-sep">/</span>
-        <a onClick={() => setPage('landing')}>Coleção Nacional</a>
+        <a onClick={() => setPage('home')}>{product.category === 'cars' ? 'Carros' : 'Displays'}</a>
         <span className="breadcrumb-sep">/</span>
-        <span>VW Gol G1 – Edição Brasil</span>
+        <span>{product.name}</span>
       </div>
 
       <div className="product-layout">
+        {/* GALERIA */}
         <div className="gallery">
-          <div className="gallery-main">
-            <img src={imgs[activeImg].src} alt={imgs[activeImg].label} />
-            <div className="badge-licensed">LICENCIADO VW BRASIL</div>
-          </div>
-          <div className="gallery-thumbs">
-            {imgs.map((img, i) => (
-              <div key={i} className={`thumb ${activeImg === i ? 'active' : ''}`} onClick={() => setActiveImg(i)}>
-                <img src={img.src} alt={img.label} />
-              </div>
-            ))}
+          <div className="gallery-main" style={{background:`linear-gradient(145deg, ${product.colorBg}cc, ${product.colorBg}55)`}}>
+            <div className="gallery-main-fallback">
+              <span className="big-emoji">{product.emoji}</span>
+              <span className="car-label">{product.name}</span>
+            </div>
+            <img src={product.img} alt={product.name} onError={e => e.target.style.display='none'} style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain',padding:'40px',zIndex:2}} />
+            <div className="gallery-badge">FAHABLOKS PREMIUM</div>
           </div>
         </div>
 
+        {/* INFO */}
         <div className="product-info">
-          <div className="product-badge">⭐ Edição Especial Brasil</div>
-          <h1 className="product-title">VW GOL G1</h1>
-          <p className="product-subtitle">Edição Brasil • 1980–1994 • Escala 1:8</p>
+          {product.badge && (
+            <div className={`product-cat-badge ${product.badgeStyle}`} style={{
+              background: product.badgeStyle==='yellow' ? 'var(--yellow)' : product.badgeStyle==='red' ? 'var(--red)' : 'var(--black)',
+              color: product.badgeStyle==='yellow' ? 'var(--black)' : 'var(--white)'
+            }}>
+              {product.badge}
+            </div>
+          )}
+          <h1 className="product-title">{product.name}</h1>
+          <p className="product-subtitle">{product.subtitle} · {product.pieces.toLocaleString()} peças</p>
           <div className="rating-row">
             <Stars />
-            <span className="rating-text">4.98</span>
-            <a href="#reviews" className="rating-link">487 avaliações</a>
+            <span className="rating-num">4.97</span>
+            <span className="rating-count">· 312 avaliações</span>
           </div>
           <hr className="divider" />
-          <div className="price-row">
-            <span className="price-main">R$ {currentPrice.toLocaleString('pt-BR')}</span>
-            <span className="price-old">R$ {oldPrice.toLocaleString('pt-BR')}</span>
-            <span className="price-save">-{Math.round((1-currentPrice/oldPrice)*100)}%</span>
+
+          <div className="price-block">
+            <div className="price-row">
+              <span className="price-main">R$ {fmtPrice(product.price)}</span>
+              <span className="price-old">R$ {fmtPrice(product.oldPrice)}</span>
+              <span className="price-save">-{discount(product)}%</span>
+            </div>
+            <div className="installments">
+              ou <strong>12x de R$ {installment}</strong> sem juros &nbsp;|&nbsp; <strong style={{color:'#27ae60'}}>5% OFF no PIX</strong>
+            </div>
           </div>
-          <p className="price-installments">
-            ou <strong>12x de R$ {installment.replace('.',',')}</strong> sem juros no cartão &nbsp;|&nbsp; <strong style={{color:'#27ae60'}}>5% OFF no PIX</strong>
-          </p>
+
+          <div className="pieces-tag">🧱 <strong>{product.pieces.toLocaleString()} peças</strong> · Escala 1:8 · Compatível LEGO®</div>
+
           <hr className="divider" />
-          <div className="option-label">Kit: <span>{variant === 'gol' ? 'Modelo Base' : variant === 'wheels' ? 'Rodas BBS' : 'Bundle Completo'}</span></div>
-          <div className="variant-row">
-            <button className={`variant-btn ${variant==='gol'?'active':''}`} onClick={()=>setVariant('gol')}>Gol G1 — R$ 649</button>
-            <button className={`variant-btn ${variant==='wheels'?'active':''}`} onClick={()=>setVariant('wheels')}>Rodas BBS — R$ 149</button>
-            <button className={`variant-btn ${variant==='bundle'?'active':''}`} onClick={()=>setVariant('bundle')}>🔥 Bundle — R$ 749</button>
-          </div>
-          <div className="option-label">Quantidade:</div>
-          <div className="qty-cart-row">
-            <div className="qty-control">
-              <button className="qty-btn" onClick={() => setQty(q => Math.max(1,q-1))}>−</button>
+          <p style={{fontSize:13,color:'var(--gray)',lineHeight:1.7,marginBottom:20}}>{product.description}</p>
+
+          <div style={{fontSize:12,fontWeight:800,letterSpacing:'0.08em',textTransform:'uppercase',marginBottom:10}}>Quantidade:</div>
+          <div className="qty-row">
+            <div className="qty-ctrl">
+              <button className="qty-btn" onClick={() => setQty(q => Math.max(1, q-1))}>−</button>
               <span className="qty-num">{qty}</span>
               <button className="qty-btn" onClick={() => setQty(q => q+1)}>+</button>
             </div>
-            <button className="add-btn" onClick={handleAdd} style={{background: addedFeedback ? '#27ae60' : undefined}}>
-              {addedFeedback ? '✓ ADICIONADO!' : 'ADICIONAR AO CARRINHO'}
+            <button className={`add-btn ${added ? 'added' : ''}`} onClick={handleAdd}>
+              {added ? '✓ ADICIONADO!' : 'ADICIONAR AO CARRINHO'}
             </button>
           </div>
-          <button className="buy-now-btn" onClick={() => onBuyNow({ variant, qty, price: currentPrice })}>
-            COMPRAR AGORA
-          </button>
-          <div className="trust-row">
-            <div className="trust-item"><span className="trust-icon">🚚</span><span className="trust-label">Frete Grátis</span><span className="trust-sub">Todo o Brasil</span></div>
-            <div className="trust-item"><span className="trust-icon">🔒</span><span className="trust-label">Pagamento Seguro</span><span className="trust-sub">SSL Certificado</span></div>
-            <div className="trust-item"><span className="trust-icon">🔄</span><span className="trust-label">30 Dias</span><span className="trust-sub">Troca garantida</span></div>
+
+          <div className="trust-grid">
+            <div className="trust-cell"><span className="trust-icon">🚚</span><span className="trust-label">Frete Grátis</span><span className="trust-sub">Todo o Brasil</span></div>
+            <div className="trust-cell"><span className="trust-icon">🔒</span><span className="trust-label">Pagamento Seguro</span><span className="trust-sub">SSL Certificado</span></div>
+            <div className="trust-cell"><span className="trust-icon">🔄</span><span className="trust-label">30 Dias</span><span className="trust-sub">Troca garantida</span></div>
           </div>
+
           <AccordionItem title="ESPECIFICAÇÕES TÉCNICAS" defaultOpen>
             <div className="spec-grid">
-              <div className="spec-item"><span className="spec-k">Modelo</span><span className="spec-v">VW Gol G1 (1980–1994)</span></div>
-              <div className="spec-item"><span className="spec-k">Peças</span><span className="spec-v">1.247 peças</span></div>
-              <div className="spec-item"><span className="spec-k">Escala</span><span className="spec-v">1:8 (Aprox. 28cm)</span></div>
-              <div className="spec-item"><span className="spec-k">Nível</span><span className="spec-v">Intermediário</span></div>
-              <div className="spec-item"><span className="spec-k">Idade</span><span className="spec-v">16+ anos</span></div>
-              <div className="spec-item"><span className="spec-k">Licença</span><span className="spec-v">Oficial VW Brasil</span></div>
-              <div className="spec-item"><span className="spec-k">Inclui</span><span className="spec-v">Container display</span></div>
-              <div className="spec-item"><span className="spec-k">Compatível</span><span className="spec-v">Peças padrão LEGO®</span></div>
+              {Object.entries(product.specs).map(([k, v]) => (
+                <div key={k} className="spec-item">
+                  <span className="spec-k">{k}</span>
+                  <span className="spec-v">{v}</span>
+                </div>
+              ))}
             </div>
           </AccordionItem>
           <AccordionItem title="ENTREGA E PRAZO">
-            <p>Enviamos de segunda a sexta via Sedex. Sul e Sudeste: 2–5 dias. Norte/Nordeste: 5–12 dias. Código de rastreamento enviado por e-mail.</p>
+            <p>Enviamos de segunda a sexta via Sedex. Sul e Sudeste: 2–5 dias úteis. Norte e Nordeste: 5–12 dias úteis. Código de rastreamento enviado por e-mail após despacho.</p>
           </AccordionItem>
-          <AccordionItem title="POLÍTICA DE TROCAS E DEVOLUÇÕES">
-            <p>30 dias para troca ou devolução sem burocracia. Peça danificada ou faltando? Enviamos reposição gratuitamente.</p>
+          <AccordionItem title="POLÍTICA DE TROCAS">
+            <p>30 dias para troca ou devolução sem burocracia. Peça danificada ou faltando? Enviamos reposição gratuitamente. Basta entrar em contato com nosso suporte.</p>
           </AccordionItem>
         </div>
       </div>
 
-      <div className="features-strip">
-        <div className="features-inner">
-          <div className="feat-item"><div className="feat-icon">🏆</div><div className="feat-title">LICENÇA OFICIAL</div><div className="feat-desc">Produto licenciado Volkswagen do Brasil.</div></div>
-          <div className="feat-item"><div className="feat-icon">🧱</div><div className="feat-title">1.247 PEÇAS</div><div className="feat-desc">Compatível com tijolos LEGO® padrão.</div></div>
-          <div className="feat-item"><div className="feat-icon">📦</div><div className="feat-title">DISPLAY CONTAINER</div><div className="feat-desc">Embalagem exclusiva tipo container.</div></div>
-          <div className="feat-item"><div className="feat-icon">🧉</div><div className="feat-title">EDIÇÃO BRASIL</div><div className="feat-desc">Homenagem ao ícone nacional.</div></div>
+      {/* RELACIONADOS */}
+      {related.length > 0 && (
+        <div className="related">
+          <div className="related-title">VOCÊ TAMBÉM PODE GOSTAR</div>
+          <div className="related-grid">
+            {related.map(p => (
+              <ProductCard
+                key={p.id}
+                product={p}
+                onAdd={onAdd}
+                onClick={() => { setSelectedProduct(p); window.scrollTo(0, 0); }}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-
-      <div className="reviews-section" id="reviews">
-        <div className="section-title">O QUE NOSSOS CLIENTES DIZEM</div>
-        <div className="section-subtitle">487 avaliações verificadas · média 4.98 ★</div>
-        <div className="reviews-grid">
-          {REVIEWS.map((r, i) => (
-            <div className="review-card" key={i}>
-              <div className="review-stars"><Stars count={r.rating} /></div>
-              <p className="review-text">"{r.text}"</p>
-              <div className="review-author">{r.name} — {r.city}</div>
-              <div className="review-verified">✓ Compra verificada</div>
-            </div>
-          ))}
-        </div>
-      </div>
+      )}
 
       <footer>
         <div className="footer-inner">
           <div>
-            <div className="footer-logo">POWER<span style={{color:'var(--accent)'}}>BUILD</span>®</div>
-            <div className="footer-copy" style={{marginTop:6}}>© 2025 PowerBuild Brasil.</div>
+            <div className="footer-logo">FAHA<span>BLOKS</span></div>
+            <div className="footer-copy">© 2025 FAHABLOKS.</div>
           </div>
           <div className="footer-links">
             <a href="#">Política de Privacidade</a>
@@ -836,257 +814,178 @@ function ProductPage({ onAddToCart, onBuyNow, setPage }) {
   );
 }
 
-/* ===== CHECKOUT PAGE ===== */
-function CheckoutPage({ cart, onSuccess, onRemove, onQtyChange }) {
-  const [payMethod, setPayMethod] = useState('card');
-  const [step, setStep] = useState(1);
-  const [errors, setErrors] = useState({});
+/* ========== CART PAGE ========== */
+function CartPage({ cart, onRemove, onQtyChange, onSuccess, setPage }) {
   const [coupon, setCoupon] = useState('');
   const [couponApplied, setCouponApplied] = useState(false);
-  const [form, setForm] = useState({ nome:'', sobrenome:'', email:'', cpf:'', telefone:'', cep:'', endereco:'', numero:'', complemento:'', bairro:'', cidade:'', estado:'', cardNum:'', cardName:'', cardExp:'', cardCvv:'' });
 
   const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
-  const discount = couponApplied ? Math.round(subtotal * 0.1) : 0;
-  const pixDiscount = payMethod === 'pix' ? Math.round((subtotal - discount) * 0.05) : 0;
-  const total = subtotal - discount - pixDiscount;
+  const discountVal = couponApplied ? Math.round(subtotal * 0.1) : 0;
+  const total = subtotal - discountVal;
 
-  const set = (k, v) => setForm(f => ({...f, [k]: v}));
-
-  const validate = () => {
-    const e = {};
-    if (!form.nome) e.nome = true;
-    if (!form.email || !form.email.includes('@')) e.email = true;
-    if (!form.cep) e.cep = true;
-    if (!form.endereco) e.endereco = true;
-    if (!form.numero) e.numero = true;
-    if (!form.cidade) e.cidade = true;
-    if (!form.estado) e.estado = true;
-    setErrors(e);
-    return Object.keys(e).length === 0;
-  };
-
-  const validatePayment = () => {
-    if (payMethod !== 'card') return true;
-    const e = {};
-    if (!form.cardNum || form.cardNum.replace(/\s/g,'').length < 16) e.cardNum = true;
-    if (!form.cardName) e.cardName = true;
-    if (!form.cardExp) e.cardExp = true;
-    if (!form.cardCvv || form.cardCvv.length < 3) e.cardCvv = true;
-    setErrors(e);
-    return Object.keys(e).length === 0;
-  };
-
-  const formatCard = v => v.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim().slice(0,19);
-  const formatExpiry = v => v.replace(/\D/g,'').replace(/^(.{2})(.)/,'$1/$2').slice(0,5);
+  if (cart.length === 0) {
+    return (
+      <div className="empty-cart-page">
+        <div className="empty-cart-icon">🛒</div>
+        <div className="empty-cart-title">Carrinho Vazio</div>
+        <div className="empty-cart-sub">Você ainda não adicionou nenhum produto.<br/>Explore nossa coleção!</div>
+        <button className="continue-shop-btn" onClick={() => setPage('home')}>VER MODELOS</button>
+      </div>
+    );
+  }
 
   return (
-    <div>
-      <div className="checkout-layout">
+    <div className="cart-page">
+      <div className="page-title">MEU CARRINHO</div>
+      <div className="cart-page-layout">
+        {/* ITEMS */}
         <div>
-          <div style={{display:'flex',gap:0,marginBottom:32,borderBottom:'1px solid var(--border)',paddingBottom:16}}>
-            {['Entrega','Pagamento'].map((s,i) => (
-              <div key={i} style={{display:'flex',alignItems:'center',gap:8,marginRight:24,opacity:step>=i+1?1:0.4,cursor:i===0?'pointer':'default'}} onClick={()=>i===0&&setStep(1)}>
-                <div style={{width:24,height:24,borderRadius:'50%',background:step>=i+1?'var(--black)':'var(--border)',color:step>=i+1?'var(--white)':'var(--gray)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:12,fontWeight:700,flexShrink:0}}>{step>i+1?'✓':i+1}</div>
-                <span style={{fontSize:13,fontWeight:600,color:step===i+1?'var(--black)':'var(--gray)'}}>{s}</span>
+          <div className="cart-items-list">
+            {cart.map((item, i) => (
+              <div className="cart-page-item" key={i}>
+                <div className="cart-page-img" style={{background:`${item.colorBg}33`}}>
+                  <div className="cart-page-img-placeholder">{item.emoji}</div>
+                </div>
+                <div className="cart-page-info">
+                  <div className="cart-page-name">{item.name}</div>
+                  <div className="cart-page-sub">{item.subtitle} · {item.pieces?.toLocaleString()} peças</div>
+                  <div className="cart-page-ctrl">
+                    <button className="cpqb" onClick={() => onQtyChange(i, item.qty-1)}>−</button>
+                    <span className="cpqn">{item.qty}</span>
+                    <button className="cpqb" onClick={() => onQtyChange(i, item.qty+1)}>+</button>
+                    <button className="cp-remove" onClick={() => onRemove(i)}>✕ Remover</button>
+                  </div>
+                </div>
+                <div className="cart-page-price">R$ {fmtPrice(item.price * item.qty)}</div>
               </div>
             ))}
           </div>
-
-          {step === 1 && (
-            <>
-              <div className="checkout-step-label">Passo 1 de 2</div>
-              <div className="checkout-section-title">Informações de Entrega</div>
-              <div className="form-row">
-                <div className="form-group"><label className="form-label">Nome *</label><input className={`form-input${errors.nome?' error':''}`} value={form.nome} onChange={e=>set('nome',e.target.value)} placeholder="João" /></div>
-                <div className="form-group"><label className="form-label">Sobrenome</label><input className="form-input" value={form.sobrenome} onChange={e=>set('sobrenome',e.target.value)} placeholder="Silva" /></div>
-              </div>
-              <div className="form-row">
-                <div className="form-group"><label className="form-label">E-mail *</label><input className={`form-input${errors.email?' error':''}`} type="email" value={form.email} onChange={e=>set('email',e.target.value)} placeholder="joao@email.com" /></div>
-                <div className="form-group"><label className="form-label">Telefone</label><input className="form-input" value={form.telefone} onChange={e=>set('telefone',e.target.value)} placeholder="(11) 99999-9999" /></div>
-              </div>
-              <div className="form-row">
-                <div className="form-group"><label className="form-label">CPF</label><input className="form-input" value={form.cpf} onChange={e=>set('cpf',e.target.value)} placeholder="000.000.000-00" /></div>
-                <div className="form-group"><label className="form-label">CEP *</label><input className={`form-input${errors.cep?' error':''}`} value={form.cep} onChange={e=>set('cep',e.target.value)} placeholder="00000-000" /></div>
-              </div>
-              <div className="form-row" style={{gridTemplateColumns:'2fr 1fr'}}>
-                <div className="form-group"><label className="form-label">Endereço *</label><input className={`form-input${errors.endereco?' error':''}`} value={form.endereco} onChange={e=>set('endereco',e.target.value)} placeholder="Rua das Flores" /></div>
-                <div className="form-group"><label className="form-label">Número *</label><input className={`form-input${errors.numero?' error':''}`} value={form.numero} onChange={e=>set('numero',e.target.value)} placeholder="123" /></div>
-              </div>
-              <div className="form-row">
-                <div className="form-group"><label className="form-label">Complemento</label><input className="form-input" value={form.complemento} onChange={e=>set('complemento',e.target.value)} placeholder="Apto 4B" /></div>
-                <div className="form-group"><label className="form-label">Bairro</label><input className="form-input" value={form.bairro} onChange={e=>set('bairro',e.target.value)} placeholder="Centro" /></div>
-              </div>
-              <div className="form-row">
-                <div className="form-group"><label className="form-label">Cidade *</label><input className={`form-input${errors.cidade?' error':''}`} value={form.cidade} onChange={e=>set('cidade',e.target.value)} placeholder="São Paulo" /></div>
-                <div className="form-group"><label className="form-label">Estado *</label>
-                  <select className={`form-select${errors.estado?' error':''}`} value={form.estado} onChange={e=>set('estado',e.target.value)}>
-                    <option value="">Selecione...</option>
-                    {['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'].map(s=><option key={s}>{s}</option>)}
-                  </select>
-                </div>
-              </div>
-              <button className="place-order-btn" onClick={() => { if(validate()) setStep(2); }} style={{fontSize:18,padding:'14px'}}>
-                CONTINUAR PARA PAGAMENTO →
-              </button>
-            </>
-          )}
-
-          {step === 2 && (
-            <>
-              <div className="checkout-step-label">Passo 2 de 2</div>
-              <div className="checkout-section-title">Forma de Pagamento</div>
-              <div className="payment-tabs">
-                {[['card','💳 Cartão'],['pix','🟢 PIX'],['boleto','📄 Boleto']].map(([k,l])=>(
-                  <button key={k} className={`payment-tab${payMethod===k?' active':''}`} onClick={()=>setPayMethod(k)}>{l}</button>
-                ))}
-              </div>
-              {payMethod === 'card' && (
-                <>
-                  <div className="card-icons">{['VISA','MC','ELO','HIPERCARD','AMEX'].map(c=><div key={c} className="card-icon">{c}</div>)}</div>
-                  <div className="form-row single"><div className="form-group"><label className="form-label">Número do Cartão *</label><input className={`form-input${errors.cardNum?' error':''}`} value={form.cardNum} onChange={e=>set('cardNum',formatCard(e.target.value))} placeholder="0000 0000 0000 0000" maxLength={19} /></div></div>
-                  <div className="form-row single"><div className="form-group"><label className="form-label">Nome no Cartão *</label><input className={`form-input${errors.cardName?' error':''}`} value={form.cardName} onChange={e=>set('cardName',e.target.value.toUpperCase())} placeholder="JOÃO SILVA" /></div></div>
-                  <div className="form-row">
-                    <div className="form-group"><label className="form-label">Validade *</label><input className={`form-input${errors.cardExp?' error':''}`} value={form.cardExp} onChange={e=>set('cardExp',formatExpiry(e.target.value))} placeholder="MM/AA" maxLength={5} /></div>
-                    <div className="form-group"><label className="form-label">CVV *</label><input className={`form-input${errors.cardCvv?' error':''}`} value={form.cardCvv} onChange={e=>set('cardCvv',e.target.value.replace(/\D/g,'').slice(0,4))} placeholder="123" maxLength={4} /></div>
-                  </div>
-                  <div className="form-row single"><div className="form-group"><label className="form-label">Parcelas</label>
-                    <select className="form-select">{[...Array(12)].map((_,i)=><option key={i} value={i+1}>{i+1}x de R$ {(total/(i+1)).toFixed(2).replace('.',',')} {i===0?'à vista':i<5?'sem juros':''}</option>)}</select>
-                  </div></div>
-                </>
-              )}
-              {payMethod === 'pix' && <div className="pix-info"><div className="pix-title">🟢 PIX — <span className="pix-discount">5% de desconto!</span></div><div className="pix-desc">QR Code gerado após o pedido. Confirmação em até 5 minutos.<br/><br/><strong>Total com PIX: R$ {total.toLocaleString('pt-BR')}</strong></div></div>}
-              {payMethod === 'boleto' && <div className="boleto-info"><div className="pix-title">📄 Boleto Bancário</div><div className="pix-desc">Vence em 3 dias úteis. Confirmação em até 2 dias após pagamento.</div></div>}
-              <button className="place-order-btn" onClick={() => { if(validatePayment()) onSuccess({ form, cart, total, payMethod }); }}>
-                {payMethod === 'pix' ? '🟢 GERAR QR CODE PIX' : payMethod === 'boleto' ? '📄 GERAR BOLETO' : '🔒 FINALIZAR PEDIDO'}
-              </button>
-              <div className="secure-checkout">🔒 Pagamento 100% seguro e criptografado</div>
-            </>
-          )}
+          <div style={{marginTop:16,fontSize:13}}>
+            <a onClick={() => setPage('home')} style={{cursor:'pointer',color:'var(--gray)',fontWeight:700,letterSpacing:'0.04em',textDecoration:'none'}}>← Continuar comprando</a>
+          </div>
         </div>
 
-        {/* SIDEBAR */}
-        <div className="checkout-sidebar">
-          <div className="order-summary">
-            <div className="summary-title">SEU PEDIDO</div>
-            {cart.map((item, i) => (
-              <div className="summary-item" key={i}>
-                <div className="summary-img-wrap">
-                  <div className="summary-img"><img src={variantImg(item.variant)} alt="produto" /></div>
-                  <div className="summary-item-qty">{item.qty}</div>
-                </div>
-                <div className="summary-item-info">
-                  <div className="summary-item-name">{variantLabel(item.variant)}</div>
-                  <div className="summary-item-variant">Qtd: {item.qty}</div>
-                  <button className="cart-remove" style={{marginTop:4}} onClick={() => onRemove(i)}>× Remover</button>
-                </div>
-                <div className="summary-item-price">R$ {(item.price * item.qty).toLocaleString('pt-BR')}</div>
-              </div>
-            ))}
-            <div className="coupon-row">
-              <input className="coupon-input" placeholder="Cupom de desconto" value={coupon} onChange={e=>setCoupon(e.target.value.toUpperCase())} />
-              <button className="coupon-btn" onClick={()=>{if(coupon==='BRASIL10')setCouponApplied(true);}}>APLICAR</button>
-            </div>
-            {couponApplied && <div style={{fontSize:12,color:'#27ae60',fontWeight:700,marginBottom:8}}>✓ Cupom BRASIL10 — 10% off!</div>}
-            <hr className="summary-divider" />
-            <div className="summary-row"><span className="label">Subtotal</span><span>R$ {subtotal.toLocaleString('pt-BR')}</span></div>
-            {discount > 0 && <div className="summary-row"><span className="label">Desconto cupom</span><span style={{color:'#27ae60'}}>−R$ {discount.toLocaleString('pt-BR')}</span></div>}
-            {pixDiscount > 0 && <div className="summary-row"><span className="label">Desconto PIX</span><span style={{color:'#27ae60'}}>−R$ {pixDiscount.toLocaleString('pt-BR')}</span></div>}
-            <div className="summary-row"><span className="label">Frete</span><span className="free">GRÁTIS</span></div>
-            <hr className="summary-divider" />
-            <div className="summary-row total"><span className="label">Total</span><span>R$ {total.toLocaleString('pt-BR')}</span></div>
-            <div style={{fontSize:11,color:'var(--gray)',marginTop:6,textAlign:'right'}}>ou 12x de R$ {(total/12).toFixed(2).replace('.',',')} sem juros</div>
+        {/* SUMMARY */}
+        <div className="cart-summary-box">
+          <div className="summary-title">RESUMO DO PEDIDO</div>
+
+          <div className="summary-row"><span>Subtotal ({cart.reduce((s,i)=>s+i.qty,0)} itens)</span><span>R$ {fmtPrice(subtotal)}</span></div>
+          {discountVal > 0 && <div className="summary-row"><span>Desconto cupom</span><span style={{color:'#27ae60',fontWeight:700}}>−R$ {fmtPrice(discountVal)}</span></div>}
+          <div className="summary-row"><span>Frete</span><span className="summary-free">GRÁTIS</span></div>
+          <div className="summary-row total"><span>Total</span><span>R$ {fmtPrice(total)}</span></div>
+          <div style={{fontSize:11,color:'var(--gray)',textAlign:'right',marginTop:4}}>ou 12x de R$ {(total/12).toFixed(2).replace('.',',')} sem juros</div>
+
+          <div className="coupon-row">
+            <input className="coupon-input" placeholder="Cupom de desconto" value={coupon} onChange={e => setCoupon(e.target.value.toUpperCase())} />
+            <button className="coupon-btn" onClick={() => { if (coupon === 'FAHA10') setCouponApplied(true); }}>APLICAR</button>
           </div>
+          {couponApplied && <div style={{fontSize:12,color:'#27ae60',fontWeight:700,marginBottom:8}}>✓ Cupom FAHA10 — 10% de desconto!</div>}
+
+          <button className="checkout-btn" onClick={onSuccess}>FINALIZAR COMPRA</button>
+          <div className="secure-note">🔒 Pagamento 100% seguro e criptografado</div>
         </div>
       </div>
     </div>
   );
 }
 
-/* ===== SUCCESS PAGE ===== */
-function SuccessPage({ order, onHome }) {
+/* ========== SUCCESS PAGE ========== */
+function SuccessPage({ total, onHome }) {
   const orderNum = useRef(Math.floor(Math.random() * 900000 + 100000));
   return (
-    <div className="success-page">
+    <div className="success-wrap">
       <div className="success-icon">✅</div>
-      <h1 className="success-title">PEDIDO CONFIRMADO!</h1>
-      <p className="success-sub">Obrigado! Um e-mail foi enviado para <strong>{order.form.email || 'seu e-mail'}</strong>. Seu VW Gol G1 será despachado em até 2 dias úteis.</p>
-      <div className="success-order">
-        <div className="success-order-title">Resumo do Pedido</div>
-        <div style={{display:'flex',justifyContent:'space-between',fontSize:14,marginBottom:8}}><span>Pedido:</span><strong>#PB{orderNum.current}</strong></div>
-        <div style={{display:'flex',justifyContent:'space-between',fontSize:14,marginBottom:8}}><span>Total:</span><strong>R$ {order.total.toLocaleString('pt-BR')}</strong></div>
-        <div style={{display:'flex',justifyContent:'space-between',fontSize:14}}><span>Pagamento:</span><strong>{order.payMethod === 'card' ? 'Cartão' : order.payMethod === 'pix' ? 'PIX' : 'Boleto'}</strong></div>
+      <div className="success-title">PEDIDO CONFIRMADO!</div>
+      <p className="success-sub">Obrigado pela compra! Você receberá o código de rastreamento por e-mail em até 2 dias úteis.</p>
+      <div className="success-box">
+        <div className="success-box-title">Resumo do Pedido</div>
+        <div className="success-row"><span>Número do pedido:</span><strong>#FB{orderNum.current}</strong></div>
+        <div className="success-row"><span>Total pago:</span><strong>R$ {fmtPrice(total)}</strong></div>
+        <div className="success-row"><span>Frete:</span><strong style={{color:'#27ae60'}}>GRÁTIS</strong></div>
       </div>
-      <button className="continue-btn" onClick={onHome}>CONTINUAR COMPRANDO</button>
+      <button className="back-btn" onClick={onHome}>CONTINUAR COMPRANDO</button>
     </div>
   );
 }
 
-/* ===== APP ===== */
+/* ========== APP ========== */
 function App() {
-  const [page, setPage] = useState(() => localStorage.getItem('pb_page') || 'landing');
+  const [page, setPage] = useState('home');
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
-  const [successOrder, setSuccessOrder] = useState(null);
+  const [successTotal, setSuccessTotal] = useState(0);
 
-  useEffect(() => { localStorage.setItem('pb_page', page); }, [page]);
+  const goPage = (p) => { setPage(p); window.scrollTo(0, 0); };
 
-  const handleAddToCart = (item) => {
+  const handleAdd = (product) => {
     setCart(c => {
-      const idx = c.findIndex(i => i.variant === item.variant);
-      if (idx >= 0) { const nc = [...c]; nc[idx].qty += item.qty; return nc; }
-      return [...c, item];
+      const idx = c.findIndex(i => i.id === product.id);
+      if (idx >= 0) {
+        const nc = [...c];
+        nc[idx] = { ...nc[idx], qty: nc[idx].qty + 1 };
+        return nc;
+      }
+      return [...c, { ...product, qty: 1 }];
     });
     setCartOpen(true);
   };
 
-  const handleRemove = (idx) => {
-    setCart(c => c.filter((_, i) => i !== idx));
-  };
+  const handleRemove = (idx) => setCart(c => c.filter((_, i) => i !== idx));
 
   const handleQtyChange = (idx, newQty) => {
     if (newQty < 1) { handleRemove(idx); return; }
-    setCart(c => c.map((item, i) => i === idx ? {...item, qty: newQty} : item));
+    setCart(c => c.map((item, i) => i === idx ? { ...item, qty: newQty } : item));
   };
 
-  const handleBuyNow = (item) => {
-    setCart([item]);
-    setCartOpen(false);
-    setPage('checkout');
-  };
-
-  const handleCheckoutFromCart = () => {
-    setCartOpen(false);
-    setPage('checkout');
-  };
-
-  const handleSuccess = (order) => {
-    setSuccessOrder(order);
+  const handleSuccess = () => {
+    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    setSuccessTotal(total);
     setCart([]);
-    setPage('success');
+    goPage('success');
   };
 
   const cartCount = cart.reduce((s, i) => s + i.qty, 0);
 
-  const goPage = (p) => {
-    setPage(p);
-    window.scrollTo(0, 0);
-  };
-
   return (
     <>
-      <Header cartCount={cartCount} onCartClick={() => setCartOpen(true)} setPage={goPage} />
+      <Header cartCount={cartCount} onCartClick={() => setCartOpen(true)} page={page} setPage={goPage} />
       <CartDrawer
         cart={cart}
         open={cartOpen}
         onClose={() => setCartOpen(false)}
         onRemove={handleRemove}
         onQtyChange={handleQtyChange}
-        onCheckout={handleCheckoutFromCart}
+        goCart={() => goPage('cart')}
       />
-      {page === 'landing'  && <LandingPage setPage={goPage} onAddToCart={handleAddToCart} />}
-      {page === 'product'  && <ProductPage onAddToCart={handleAddToCart} onBuyNow={handleBuyNow} setPage={goPage} />}
-      {page === 'checkout' && <CheckoutPage cart={cart.length > 0 ? cart : [{variant:'gol',qty:1,price:PRICE_BASE}]} onSuccess={handleSuccess} onRemove={handleRemove} onQtyChange={handleQtyChange} />}
-      {page === 'success'  && <SuccessPage order={successOrder} onHome={() => goPage('landing')} />}
+
+      {page === 'home' && (
+        <HomePage
+          setPage={goPage}
+          setSelectedProduct={setSelectedProduct}
+          onAdd={handleAdd}
+        />
+      )}
+      {page === 'product' && selectedProduct && (
+        <ProductPage
+          product={selectedProduct}
+          onAdd={handleAdd}
+          setPage={goPage}
+          setSelectedProduct={setSelectedProduct}
+        />
+      )}
+      {page === 'cart' && (
+        <CartPage
+          cart={cart}
+          onRemove={handleRemove}
+          onQtyChange={handleQtyChange}
+          onSuccess={handleSuccess}
+          setPage={goPage}
+        />
+      )}
+      {page === 'success' && (
+        <SuccessPage total={successTotal} onHome={() => goPage('home')} />
+      )}
     </>
   );
 }
